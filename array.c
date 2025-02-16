@@ -77,7 +77,7 @@ int main(){
 	int temp = 4;
 	int test = binary_search(arr, temp);
 	print(arr);
-	printf("This is a test!!! Doing this from master!"); // should return 2
-
+	printf("\n%d", test);
+// inserting some changes in branch named feat
 	return 0;			
 }	
