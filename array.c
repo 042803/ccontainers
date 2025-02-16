@@ -72,12 +72,53 @@ int binary_search(struct Array arr, int key){
 	}
 	return -1; 
 }
+
+int get(struct Array arr, int index){
+	if (index < 0 || index > arr.length){
+		return -1; 
+	}
+	return arr.A[index];
+}
+
+int max(struct Array arr){
+	int max = arr.A[0];
+	for (int i = 1; i < arr.length; i++){
+		if (arr.A[i] > max){
+			max = arr.A[i];
+		}
+	}
+	return max;
+}
+				
+int min(struct Array arr){
+	int min = arr.A[0];
+	for (int i = 1; i < arr.length; i++){
+		if (arr.A[i] < min){
+			min = arr.A[i];
+		}
+	}
+	return min;
+}
+
+void set(struct Array* arr, int index, int elt){
+	if (index < 0 || index >= arr->length){
+		return; 
+	}
+	arr->A[index] = elt;
+}
+
+int avg(struct Array arr){
+	int avg = 0; 
+	for (int i = 0; i < arr.length; i++){
+		avg += arr.A[i]; 
+	}
+	return avg / arr.length; 
+}
 int main(){	
-	struct Array arr = {{1, 2, 3, 4, 5}, 5, 10};
-	int temp = 4;
-	int test = binary_search(arr, temp);
+	struct Array arr = {{1, 2, 3, 4, 5}, 5, 10};;
 	print(arr);
+	int test = avg(arr);
 	printf("\n%d", test);
-// inserting some changes in branch named feat
+	
 	return 0;			
 }	
