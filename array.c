@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include "stdbool.h"
 
 // testing from feat branch
 struct Array {
@@ -114,11 +115,52 @@ int avg(struct Array arr){
 	}
 	return avg / arr.length; 
 }
+
+void reverse(struct Array* arr){
+	for (int i = 0, j = arr->length - 1; i <= j; i++, j--){
+		swap(&arr->A[i], &arr->A[j]);
+	}
+}
+
+
+int shift(struct Array* arr){
+	for (int i = 0; i < arr->length; i++){
+		arr->A[i] = arr->A[i + 1];
+	}
+
+}
+
+bool is_sorted(struct Array arr){
+	for (int i = 0; i < arr.length - 2; i++){
+		if (arr.A[i] > arr.A[i + 1]){
+			return false;
+		}
+	}
+	return true;
+}
+
+
+// append, concat, compare, copy and set operations
+
+/*
+struct Array union(struct Array arr1, struct Array arr2){
+	if (!(is_sorted(arr1)) || !(is_sorted(arr2))){
+		return;
+	}
+	int i, j, k;
+	while (i < arr->length){
+		for (i = 0; i < arr1->length; i++){
+			if (i 
+		}
+	}
+}
+*/
 int main(){	
-	struct Array arr = {{1, 2, 3, 4, 5}, 5, 10};;
-	print(arr);
-	int test = avg(arr);
-	printf("\n%d", test);
+	struct Array arr = {{1, 2, 3, 4, 5, 6}, 6, 10};
+	struct Array arr1 = {{1, 10,  2, 3, 4, 5, 6}, 7, 10};
+	bool test = is_sorted(arr);
+	bool test_2 = is_sorted(arr1);
+	printf("\n%d\n%d", test, test_2);
 	
 	return 0;			
 }	
