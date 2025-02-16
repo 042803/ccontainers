@@ -44,7 +44,7 @@ int main(){
 	struct Array arr = {{1, 2, 3, 4, 5}, 5, 10};
 	int temp = pop_back(&arr, 1); // should pop element 2 back 
 	print(arr);
-	printf("\n%d", temp);
+	printf("\n %d \n", temp);
 
 	return 0;			
 }	
