@@ -140,7 +140,7 @@ bool is_sorted(struct Array arr){
 }
 
 
-// append, concat, compare, copy and set operations
+// merge, append, concat, compare, copy and set operations
 
 /*
 struct Array union(struct Array arr1, struct Array arr2){
