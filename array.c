@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "stdbool.h"
+#include "stdlib.h"
 
 // testing from feat branch
 struct Array {
@@ -139,28 +140,114 @@ bool is_sorted(struct Array arr){
 	return true;
 }
 
-
-// merge, append, concat, compare, copy and set operations
-
-/*
-struct Array union(struct Array arr1, struct Array arr2){
-	if (!(is_sorted(arr1)) || !(is_sorted(arr2))){
-		return;
-	}
+struct Array* merge(struct Array* arr1, struct Array* arr2){
 	int i, j, k;
-	while (i < arr->length){
-		for (i = 0; i < arr1->length; i++){
-			if (i 
+	i = 0; j = 0; k = 0; 
+	struct Array* temp = (struct Array*)malloc(sizeof(struct Array)); 
+
+	while(i < arr1->length && j < arr2->length){
+		if (arr1->A[i] < arr2->A[j]){
+			temp->A[k] = arr1->A[i];
+			k++;
+			i++;
+		} else {
+			temp->A[k] = arr2->A[j];
+			k++;
+			j++;
 		}
 	}
+	for (; i < arr1->length; i++){
+		temp->A[k] = arr1->A[i];
+	}
+
+	for (; j < arr2->length; j++){
+		temp->A[k] = arr2->A[j];
+	}
+	temp->length = arr1->length + arr2->length;
+	temp->size = 10;
+
+	return temp;
 }
-*/
+
+struct Array* un(struct Array* arr1, struct Array* arr2){
+	int i, j, k;
+	i = 0; j = 0; k = 0; 
+	struct Array* temp = (struct Array*)malloc(sizeof(struct Array)); 
+
+	while (i < arr1->length && j < arr2->length){
+		if (arr1->A[i] < arr2->A[j]){
+			temp->A[k++] = arr1->A[i++];
+		} else if (arr2->A[j] < arr1->A[i]){
+			temp->A[k++] = arr2->A[j++];
+		} else {
+			temp->A[k++] = arr1->A[i++];
+			j++;
+		}
+	}
+	
+	for (; i < arr1->length; i++){
+		temp->A[k++] = arr1->A[i];
+	}
+	for (; j < arr2->length; j++){
+		temp->A[k++] = arr2->A[j];
+	}
+	temp->length = k;
+	temp->size = 10;
+	
+	return temp;
+}
+
+struct Array* in(struct Array* arr1, struct Array* arr2){
+	int i, j, k;
+	i = 0; j = 0; k = 0;
+	struct Array* temp = (struct Array*)malloc(sizeof(struct Array));
+
+	while (i < arr1->length && j < arr2->length){
+		if (arr1->A[i] == arr2->A[j]){
+			temp->A[k++] = arr1->A[i++];
+			j++;
+		} else if (arr1->A[i] < arr2->A[j]){
+			i++;
+		} else if (arr2->A[j] < arr1->A[i]){
+			j++;
+		}
+	}
+	temp->length = k;
+	temp->size = 10;
+	return temp;
+}
+
+struct Array* dif(struct Array* arr1, struct Array* arr2){
+	int i, j, k;
+	i = 0; j = 0; k = 0;
+	struct Array* temp = (struct Array*)malloc(sizeof(struct Array));
+
+	while (i < arr1->length){
+		if (arr1->A[i] < arr2->A[j]){
+			temp->A[k++] = arr1->A[i++];
+		} else if (arr2->A[j] < arr1->A[i]){
+			j++;
+		} else {
+			i++;
+		}
+	}
+	for (; i < arr1->length; i++){
+		temp->A[k++] = arr1->A[i];
+	}
+	temp->length = k;
+	temp->size = 10;
+	
+	return temp;
+	
+}
+
+
 int main(){	
-	struct Array arr = {{1, 2, 3, 4, 5, 6}, 6, 10};
-	struct Array arr1 = {{1, 10,  2, 3, 4, 5, 6}, 7, 10};
-	bool test = is_sorted(arr);
-	bool test_2 = is_sorted(arr1);
-	printf("\n%d\n%d", test, test_2);
+	struct Array arr = {{1, 2, 5, 6, 9}, 5, 10};
+	struct Array arr1 = {{1, 3, 5, 7, 9}, 5, 10};
+	struct Array *temp;
+	temp = dif(&arr, &arr1);
+	print(*temp);
 	
 	return 0;			
 }	
