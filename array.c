@@ -1,14 +1,5 @@
-#include "stdio.h"
-#include "stdbool.h"
-#include "stdlib.h"
-
-// testing from feat branch
-struct Array {
-	int A[10];
-	int length;
-	int size;
-};
-
+#include "array.h"
+// helper functions
 void swap(int* a, int* b){
 	int temp = *a; 
 	*a = *b; 
@@ -21,6 +12,7 @@ void print(struct Array arr){
 	}
 }
 
+// insertion and deletion
 void push_back(struct Array* arr, int elt){
 	if (arr->length < arr->size){
 		arr->A[arr->length] = elt; 
@@ -49,6 +41,7 @@ int pop_back(struct Array* arr, int index){
 	return temp; 
 }
 
+// search operations
 int linear_search(struct Array* arr, int key){
 	for (int i = 0; i < arr->length; i++){
 		if (arr->A[i] == key){
@@ -75,6 +68,7 @@ int binary_search(struct Array arr, int key){
 	return -1; 
 }
 
+// get, set, max, min, avg  
 int get(struct Array arr, int index){
 	if (index < 0 || index > arr.length){
 		return -1; 
@@ -117,6 +111,7 @@ int avg(struct Array arr){
 	return avg / arr.length; 
 }
 
+//reverse and shift
 void reverse(struct Array* arr){
 	for (int i = 0, j = arr->length - 1; i <= j; i++, j--){
 		swap(&arr->A[i], &arr->A[j]);
@@ -140,6 +135,7 @@ bool is_sorted(struct Array arr){
 	return true;
 }
 
+// binary operations, merge, union, intersection and difference
 struct Array* merge(struct Array* arr1, struct Array* arr2){
 	int i, j, k;
 	i = 0; j = 0; k = 0; 
