@@ -1,4 +1,5 @@
 #include "../include/array.h"
+#include "../src/array.c"
 #include <CUnit/CUnit.h>
 #include <CUnit/Basic.h>
 #include <stdio.h>
@@ -27,10 +28,14 @@ void test_print() {
     struct Array arr1 = {{1, 2, 3, 4, 5}, 5, 10};
     struct Array arr2 = {{10, 15, 20, 25, 30}, 5, 10};
     struct Array arr3 = {{-1, -2, -3, -4, -5}, 5, 10};
+    struct Array arr4 = {{}, 0, 10};
 
+    
     CU_ASSERT_STRING_EQUAL(capture_output(print, arr1), "1 2 3 4 5 \n");
     CU_ASSERT_STRING_EQUAL(capture_output(print, arr2), "10 15 20 25 30 \n");
     CU_ASSERT_STRING_EQUAL(capture_output(print, arr3), "-1 -2 -3 -4 -5 \n");
+    CU_ASSERT_STRING_EQUAL(capture_output(print, arr4), "\n");	    
+	
 }
 
 int main() {
