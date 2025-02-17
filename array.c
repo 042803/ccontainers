@@ -10,6 +10,7 @@ void print(struct Array arr){
 	for (int i = 0; i < arr.length; i++){
 		printf("%d ", arr.A[i]);
 	}
+	printf("\n");
 }
 
 // insertion and deletion
