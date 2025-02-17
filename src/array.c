@@ -32,13 +32,14 @@ void emplace_at(struct Array* arr, int index, int elt){
 }
 
 int remove_at(struct Array* arr, int index){
-	int temp = arr->A[index];
+	int temp = -1; // return -1 if index is invalid
 	if (index >= 0 && index < arr->length){
+		temp = arr->A[index];
 		for (int i = index; i < arr->length - 1; i++){
 			arr->A[i] = arr->A[i + 1];
-		}	
-	}		
-	arr->length--; 
+		}
+		arr->length--;
+	}
 	return temp; 
 }
 
