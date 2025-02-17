@@ -1,4 +1,4 @@
-#include "array.h"
+#include "../include/array.h"
 
 struct Array* merge(struct Array* arr1, struct Array* arr2){
 	int i, j, k;

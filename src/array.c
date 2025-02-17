@@ -1,4 +1,4 @@
-#include "array.h"
+#include "../include/array.h"
 // helper functions
 void swap(int* a, int* b){
 	int temp = *a; 
@@ -31,7 +31,7 @@ void emplace_at(struct Array* arr, int index, int elt){
 	}
 }
 
-int pop_back(struct Array* arr, int index){
+int remove_at(struct Array* arr, int index){
 	int temp = arr->A[index];
 	if (index >= 0 && index < arr->length){
 		for (int i = index; i < arr->length - 1; i++){

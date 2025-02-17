@@ -15,7 +15,7 @@ void swap(int* a, int* b);
 void print(struct Array arr);
 void push_back(struct Array* arr, int elt);
 void emplace_at(struct Array* arr, int index, int elt);
-int pop_back(struct Array* arr, int index);
+int remove_at(struct Array* arr, int index);
 int linear_search(struct Array* arr, int key);
 int binary_search(struct Array arr, int key);
 int get(struct Array arr, int index);

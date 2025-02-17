@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "array.h"
+#include "../include/array.h"
 
 int main(){
 	struct Array arr = {{1, 2, 3, 4, 5}, 5, 10};
