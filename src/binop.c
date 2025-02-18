@@ -1,10 +1,26 @@
 #include "../include/array.h"
 
 struct Array* merge(struct Array* arr1, struct Array* arr2){
+	struct Array* temp = (struct Array*)malloc(sizeof(struct Array)); 
+	// testing for one empty array case
+	
+	if (arr1->length == 0 && arr2->length > 0){
+		for (int i = 0; i < arr2->length; i++){
+			temp->A[i] = arr2->A[i];	
+		}
+		temp->length = arr2->length;
+		return temp;
+
+	} else if (arr2->length == 0 && arr1->length > 0){
+		for (int i = 0; i < arr1->length; i++){
+			temp->A[i] = arr1->A[i];
+		}
+		temp->length = arr1->length;
+		return temp;
+	}
+	
 	int i, j, k;
 	i = 0; j = 0; k = 0; 
-	struct Array* temp = (struct Array*)malloc(sizeof(struct Array)); 
-
 	while(i < arr1->length && j < arr2->length){
 		if (arr1->A[i] < arr2->A[j]){
 			temp->A[k] = arr1->A[i];
