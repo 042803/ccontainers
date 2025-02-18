@@ -115,6 +115,9 @@ int avg(struct Array arr){
 
 //reverse and shift
 void reverse(struct Array* arr){
+	if (arr->length == 0 || arr->length == 1){
+		return;
+	}
 	for (int i = 0, j = arr->length - 1; i <= j; i++, j--){
 		swap(&arr->A[i], &arr->A[j]);
 	}
@@ -122,17 +125,22 @@ void reverse(struct Array* arr){
 
 
 int shift(struct Array* arr){
+	if (arr->length == 0) return -1; 
+	int shifted = arr->A[0]; 
 	for (int i = 0; i < arr->length; i++){
 		arr->A[i] = arr->A[i + 1];
 	}
-
+	return shifted;
 }
 
 bool is_sorted(struct Array arr){
-	for (int i = 0; i < arr.length - 2; i++){
-		if (arr.A[i] > arr.A[i + 1]){
-			return false;
+	if (arr.length == 0 || arr.length == 1){
+		return true;
+	} else {
+		for (int i = 0; i < arr.length - 2; i++){
+			if (arr.A[i] > arr.A[i + 1]){
+				return false;
+			}
 		}
 	}
-	return true;
 }

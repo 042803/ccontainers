@@ -8,7 +8,7 @@
 struct Array {
 	int A[10];
 	int length;
-	int size = 10;
+	int size;
 };
 
 void swap(int* a, int* b);
