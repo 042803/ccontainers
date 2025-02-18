@@ -73,7 +73,7 @@ void test_shift(){
 	CU_ASSERT_EQUAL(arr.A[2], 4);
 	CU_ASSERT_EQUAL(arr.A[3], 5);
 	CU_ASSERT_EQUAL(arr.A[4], 6);
-	
+	CU_ASSERT_EQUAL(arr.length, 5);
 	// Test Case 2: Shift single-element array
 	struct Array single_array = {{42}, 1, 10};
 	temp_shift_val = shift(&single_array);
@@ -84,8 +84,17 @@ void test_shift(){
 	struct Array empty_array = {{}, 0, 10};
 	temp_shift_val = shift(&empty_array);
 	CU_ASSERT_EQUAL(temp_shift_val, -1);
+	
+	// Test Case 4 : Shifting full array
+	struct Array full = {{1, 2, 3, 4, 5}, 5, 5};
+	temp_shift_val = shift(&full);
+	CU_ASSERT_EQUAL(temp_shift_val, 1);
+	CU_ASSERT_EQUAL(arr.A[0], 2);
+	CU_ASSERT_EQUAL(arr.A[1], 3);
+	CU_ASSERT_EQUAL(arr.A[2], 4);
+	CU_ASSERT_EQUAL(arr.A[3], 5);
+	CU_ASSERT_EQUAL(arr.A[5], 0);
 }
-
 
 void test_is_sorted(){
 

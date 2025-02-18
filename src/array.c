@@ -130,6 +130,10 @@ int shift(struct Array* arr){
 	for (int i = 0; i < arr->length; i++){
 		arr->A[i] = arr->A[i + 1];
 	}
+	if (arr->length == arr->size){
+		arr->A[arr->length -1] = 0; 
+	}
+	arr->length--; 
 	return shifted;
 }
 
