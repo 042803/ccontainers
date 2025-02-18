@@ -8,7 +8,7 @@
 struct Array {
 	int A[10];
 	int length;
-	int size;
+	int size = 10;
 };
 
 void swap(int* a, int* b);
@@ -19,9 +19,9 @@ int remove_at(struct Array* arr, int index);
 int linear_search(struct Array* arr, int key);
 int binary_search(struct Array arr, int key);
 int get(struct Array arr, int index);
+void set(struct Array* arr, int index, int elt);
 int max(struct Array arr);
 int min(struct Array arr);
-void set(struct Array* arr, int index, int elt);
 int avg(struct Array arr);
 void reverse(struct Array* arr);
 int shift(struct Array* arr);

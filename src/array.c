@@ -72,7 +72,7 @@ int binary_search(struct Array arr, int key){
 
 // get, set, max, min, avg  
 int get(struct Array arr, int index){
-	if (index < 0 || index > arr.length){
+	if (index < 0 || index >= arr.length){
 		return -1; 
 	}
 	return arr.A[index];
