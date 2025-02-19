@@ -49,7 +49,6 @@ struct Array* un(struct Array* arr1, struct Array* arr2){
 	int i, j, k;
 	i = 0; j = 0; k = 0; 
 	struct Array* temp = (struct Array*)malloc(sizeof(struct Array)); 
-
 	while (i < arr1->length && j < arr2->length){
 		if (arr1->A[i] < arr2->A[j]){
 			temp->A[k++] = arr1->A[i++];
@@ -77,7 +76,6 @@ struct Array* in(struct Array* arr1, struct Array* arr2){
 	int i, j, k;
 	i = 0; j = 0; k = 0;
 	struct Array* temp = (struct Array*)malloc(sizeof(struct Array));
-
 	while (i < arr1->length && j < arr2->length){
 		if (arr1->A[i] == arr2->A[j]){
 			temp->A[k++] = arr1->A[i++];
@@ -97,7 +95,15 @@ struct Array* dif(struct Array* arr1, struct Array* arr2){
 	int i, j, k;
 	i = 0; j = 0; k = 0;
 	struct Array* temp = (struct Array*)malloc(sizeof(struct Array));
-
+	// test for emptiness of second array 
+	if (arr2->length == 0){
+		for (; i < arr1->length; i++){
+			temp->A[i] = arr1->A[i];
+		}
+		temp->length = arr1->length;
+		return temp;
+	}
+	
 	while (i < arr1->length){
 		if (arr1->A[i] < arr2->A[j]){
 			temp->A[k++] = arr1->A[i++];
