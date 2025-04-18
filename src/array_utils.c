@@ -3,27 +3,27 @@
 #include <stdio.h>
 
 
-// helper functions 
+// Helper functions 
 
-static void swap(int* a, int* b){
+void swap(int* a, int* b){
 	int temp = *a; 
 	*a = *b; 
 	*b = temp; 
 }
 
-static void cpy(int* dest, int* src, size_t length){
+void cpy(int* dest, const int* src, size_t length){
     for (size_t index = 0; index < length; ++index){
         dest[index] = src[index];
     }
 }
 
-static void resize_to(struct Array* arr, size_t new_size) {
+bool resize_to(struct Array* arr, size_t new_size) {
     if (new_size < 4) new_size = ARR_MIN_SIZE;
 
     int* new_A = (int*)calloc(new_size, sizeof(int));
     if (!new_A) {
         fprintf(stderr, "allocation failed\n");
-        exit(EXIT_FAILURE);
+        return false;
     }
 
     if (arr->A != NULL) {
@@ -33,8 +33,9 @@ static void resize_to(struct Array* arr, size_t new_size) {
 
     arr->A = new_A;
     arr->size = new_size;
+    return true;
 }
 
-static void internal_resize(struct Array* arr){
-    resize_to(arr, arr->size * 2);
+bool internal_resize(struct Array* arr){
+    return resize_to(arr, arr->size * 2);
 }
