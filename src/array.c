@@ -229,7 +229,7 @@ bool is_sorted(const struct Array* arr){
 
 void quick_sort(struct Array* arr){
     if (arr->length > 1){
-        internal_quicksort(arr, 0, arr->length - 1);
+        internal_quicksort(arr, 0, arr->length);
     }
 }
 
