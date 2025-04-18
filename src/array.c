@@ -224,4 +224,17 @@ bool is_sorted(const struct Array* arr){
 			}
 		}
 	}
+        return true;
+}
+
+void quick_sort(struct Array* arr){
+    if (arr->length > 1){
+        internal_quicksort(arr, 0, arr->length - 1);
+    }
+}
+
+void merge_sort(struct Array* arr){
+    if (arr->length > 1){
+        internal_merge_sort(arr, 0, arr->length - 1);
+    }
 }

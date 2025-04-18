@@ -14,6 +14,9 @@ struct Array {
 
 #define ARR_MIN_SIZE 4
 
+
+
+
 struct Array init(size_t initial_size);
 struct Array init_from_array(const int* values, size_t length);
 bool array_resize(struct Array* arr, size_t new_size);
@@ -33,10 +36,10 @@ int avg(const struct Array* arr);
 void reverse(struct Array* arr);
 int shift(struct Array* arr);
 bool is_sorted(const struct Array* arr);
-
-struct Array* merge(struct Array* arr1, struct Array* arr2);
-struct Array* un(struct Array* arr1, struct Array* arr2);
-struct Array* in(struct Array* arr1, struct Array* arr2);
-struct Array* dif(struct Array* arr1, struct Array* arr2);
-
+struct Array merge(const struct Array* arr1, const struct Array* arr2);
+struct Array un(const struct Array* arr1, const struct Array* arr2);
+struct Array in(const struct Array* arr1, const struct Array* arr2);
+struct Array dif(const struct Array* arr1, const struct Array* arr2);
+void quick_sort(struct Array* arr);
+void merge_sort(struct Array* arr);
 #endif
