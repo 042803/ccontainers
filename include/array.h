@@ -1,20 +1,26 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
-#include "stdio.h"
-#include "stdbool.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 struct Array {
-	int A[10];
-	int length;
-	int size;
+	int *A;
+	size_t length;
+	size_t size;
 };
 
-void swap(int* a, int* b);
+#define ARR_MIN_SIZE 4
+
+struct Array init(size_t initial_size);
+void free_arr(struct Array* arr);
 void print(struct Array arr);
 void push_back(struct Array* arr, int elt);
 void emplace_at(struct Array* arr, int index, int elt);
+
+// things to work on later
 int remove_at(struct Array* arr, int index);
 int linear_search(struct Array* arr, int key);
 int binary_search(struct Array arr, int key);

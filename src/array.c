@@ -1,9 +1,23 @@
 #include "../include/array.h"
-// helper functions
-void swap(int* a, int* b){
-	int temp = *a; 
-	*a = *b; 
-	*b = temp; 
+#include "../include/array_utils.h"
+
+#define ARRAY_MIN_SIZE 4
+
+void array_resize(struct Array* arr, size_t new_size){
+    if (new_size < arr->length){
+        fprintf(stderr, "cannot shrink below current length\n");
+        return;
+    }
+    resize_to(arr, new_size);
+}
+
+void free_arr(struct Array* arr){
+    if (arr->A != NULL){
+        free(arr->A);
+        arr->A = NULL;
+    }
+    arr->length = 0;
+    arr->size = 0;
 }
 
 void print(struct Array arr){
@@ -18,7 +32,9 @@ void push_back(struct Array* arr, int elt){
 	if (arr->length < arr->size){
 		arr->A[arr->length] = elt; 
 		arr->length++;
-	}
+        } else {
+            
+        }
 }
 
 void emplace_at(struct Array* arr, int index, int elt){
