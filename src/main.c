@@ -14,9 +14,5 @@ int main(){
     }    
     print(&arr1);
 
-    quick_sort(&arr1); 
-    print(&arr1);
-
-
     return 0; 
 }

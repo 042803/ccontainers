@@ -1,5 +1,6 @@
 #include "../include/array.h"
 #include "../include/array_utils.h"
+#include "../include/array_operations.h"
 
 #define ARRAY_MIN_SIZE 4
 
@@ -59,11 +60,12 @@ void free_arr(struct Array* arr){
     arr->size = 0;
 }
 
-void print(const struct Array* arr){
-	for (int i = 0; i < arr->length; i++){
-		printf("%d ", arr->A[i]);
-	}
-	printf("\n");
+void print(const struct Array* arr) {
+    int val;
+    CONST_ARRAY_FOREACH(val, arr) {
+        printf("%d ", val);
+    }
+    printf("\n");
 }
 
 bool push_back(struct Array* arr, int elt){

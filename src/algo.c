@@ -15,7 +15,6 @@ void reverse(struct Array* arr){
     }
 }
 
-
 int shift(struct Array* arr){
     if (arr->length == 0) return -1; 
 	
