@@ -2,26 +2,13 @@
 #include "../include/vector.h"
 
 int main() {
+    struct Array arr = init(10);
+    for (int i = 0; i < 10; ++i) push_back(&arr, 18 - i * 2);  // [18, 16, 14, ..., 0]
 
-    struct Array arr = init(5);
-    printf("Size : %zu\nLength : %zu\nFlagged Count : %zu\n", arr.size, arr.length, arr.flagged_count);
+    int idx = c_binary_search(&arr, 12, cmp_descending);
+    bool exists = c_contains(&arr, 20, cmp_descending);
     
-    for (int i = 0; i < arr.size; i++){
-        push_back(&arr, i * 7);
-    }
-
-    printf("arr : ");
-    print(&arr);
-
-    int idx = linear_search(&arr, 28);
-    printf("index of 28 is : %d\n", idx);
-    
-    printf("arr after set_all() : ");
-    set_all(&arr, 65);
-    print(&arr);
-   
-    free_arr(&arr);
-    
+    printf("idx = %d\nexists = %b\n", idx, exists);
     printf("Finishing properly!\n");
     return 0;
 }

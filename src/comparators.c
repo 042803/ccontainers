@@ -4,20 +4,29 @@ static inline int int_abs(int x) {
     return x < 0 ? -x : x;
 }
 
-int cmp_ascending(const int* a, const int* b) {
-    return (*a > *b) - (*a < *b);
+int cmp_ascending(const void* a, const void* b) {
+    const int ia = *(const int*) a; 
+    const int ib = *(const int*) b;
+    return (ia > ib) - (ia < ib);
 }
 
-int cmp_descending(const int* a, const int* b) {
-    return (*b > *a) - (*b < *a);
+int cmp_descending(const void* a, const void* b) {
+    const int ia = *(const int*)a;
+    const int ib = *(const int*)b;
+    return (ib > ia) - (ib < ia);   
 }
 
-int cmp_modulus(const int* a, const int* b) {
-    return (int_abs(*a) > int_abs(*b)) - (int_abs(*a) < int_abs(*b));
+int cmp_modulus(const void* a, const void* b) {
+    const int ia = int_abs(*(const int*)a);
+    const int ib = int_abs(*(const int*)b);
+    return (ia > ib) - (ia < ib);
 }
 
-int cmp_even_first(const int* a, const int* b) {
-    if ((*a % 2 == 0) && (*b % 2 != 0)) return -1;
-    if ((*a % 2 != 0) && (*b % 2 == 0)) return 1;
-    return cmp_ascending(a, b);
+int cmp_even_first(const void* a, const void* b) {
+    const int ia = *(const int*)a;
+    const int ib = *(const int*)b;
+
+    if ((ia % 2 == 0) && (ib % 2 != 0)) return -1;
+    if ((ia % 2 != 0) && (ib % 2 == 0)) return 1;
+    return cmp_ascending(&ia, &ib); 
 }

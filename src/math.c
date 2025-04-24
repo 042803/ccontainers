@@ -55,5 +55,3 @@ int min(const struct Array* arr){
 	}
 	return min;
 }
-
-
