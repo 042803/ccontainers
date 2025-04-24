@@ -2,6 +2,7 @@
 #include "../include/algo.h"
 #include "../include/array_utils.h"
 #include "../include/msc.h"
+#include "../include/comparators.h"
 
 void reverse(struct Array* arr){
     if (arr->length == 0 || arr->length == 1)
@@ -44,10 +45,26 @@ void quick_sort(struct Array* arr){
     }
 }
 
+void c_quick_sort(struct Array* arr, comparator_fn cmp){
+    if (arr->flagged_count > 0)
+        compact(arr);
+    if (arr->length > 1){
+        c_quicksort(arr, 0, arr->length, cmp);
+    }
+}
+
 void merge_sort(struct Array* arr){
     if (arr->flagged_count > 0)
         compact(arr);
     if (arr->length > 1){
         internal_merge_sort(arr, 0, arr->length - 1);
+    }
+}
+
+void c_merge_sort(struct Array* arr, comparator_fn cmp){
+    if (arr->flagged_count > 0)
+        compact(arr);
+    if (arr->length > 1){
+        c_mergesort(arr, 0, arr->length - 1, cmp);
     }
 }

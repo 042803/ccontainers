@@ -99,9 +99,8 @@ bool emplace_at(struct Array* arr, int index, int elt){
 
 void fill(struct Array* arr, int elt) {
     if (!arr || !arr->A) return;
-
-    for (int i = 0; i < arr->length; ++i) {
-        arr->A[i] = elt; 
+    for (size_t i = 0; i < arr->length; ++i) {
+        arr->A[i] = elt;
     }
     arr->flagged_count = 0;
 }

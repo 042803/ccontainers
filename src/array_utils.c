@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 // Helper functions 
-
 void swap(int* a, int* b){
 	int temp = *a; 
 	*a = *b; 
@@ -57,12 +55,41 @@ int internal_partition(struct Array* arr, int low, int high){
     return j;
 }
 
+int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
+    if (!arr || !arr->A || low < 0 || high >= (int)arr->length || low >= high) {
+        return -1;
+    }
+
+    int pivot = arr->A[low];
+    int i = low;
+    int j = high;
+
+    while (i < j) {
+        do { i++; } while (i <= high && cmp(&arr->A[i], &pivot) <= 0);
+        do { j--; } while (j >= low && cmp(&arr->A[j], &pivot) > 0);
+
+        if (i < j) {
+            swap(&arr->A[i], &arr->A[j]);
+        }
+    }
+
+    swap(&arr->A[low], &arr->A[j]);
+    return j;
+}
 
 void internal_quicksort(struct Array* arr, int low, int high){
     if (low < high){
         int j = internal_partition(arr, low, high);
         internal_quicksort(arr, low, j);
         internal_quicksort(arr, j + 1, high);
+    }
+}
+
+void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
+    if (low < high) {
+        int j = c_partition(arr, low, high, cmp);
+        c_quicksort(arr, low, j, cmp);
+        c_quicksort(arr, j + 1, high, cmp);
     }
 }
 
@@ -93,11 +120,47 @@ void internal_merge(struct Array* arr, int low, int mid, int high){
     free_arr(&temp);
 }
 
+void c_merge(struct Array* arr, int low, int mid, int high, comparator_fn cmp) {
+    struct Array temp = init(arr->size);
+    int i = low, j = mid + 1, k = low;
+
+    while (i <= mid && j <= high) {
+        if (cmp(&arr->A[i], &arr->A[j]) <= 0) {
+            temp.A[k++] = arr->A[i++];
+        } else {
+            temp.A[k++] = arr->A[j++];
+        }
+    }
+
+    while (i <= mid) {
+        temp.A[k++] = arr->A[i++];
+    }
+
+    while (j <= high) {
+        temp.A[k++] = arr->A[j++];
+    }
+
+    for (i = low; i <= high; i++) {
+        arr->A[i] = temp.A[i];
+    }
+
+    free_arr(&temp);
+}
+
 void internal_merge_sort(struct Array* arr, int low, int high){
     if (low < high){
         int mid = (low + high) / 2;
         internal_merge_sort(arr, low, mid);
         internal_merge_sort(arr, mid + 1, high);
         internal_merge(arr, low, mid, high);
+    }
+}
+
+void c_mergesort(struct Array* arr, int low, int high, comparator_fn cmp) {
+    if (low < high) {
+        int mid = (low + high) / 2;
+        c_mergesort(arr, low, mid, cmp);
+        c_mergesort(arr, mid + 1, high, cmp);
+        c_merge(arr, low, mid, high, cmp);
     }
 }

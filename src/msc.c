@@ -2,6 +2,8 @@
 #include "../include/msc.h"
 #include "../include/math.h"
 #include "../include/algo.h"
+#include "../include/iterator.h"
+#include "../include/const_iterator.h"
 #include <limits.h> 
 
 #define FLAGGED INT_MAX
@@ -20,20 +22,28 @@ bool equals_not_sorted(struct Array* a, struct Array* b){
     return equals(a, b); 
 }
 
-bool equals(const struct Array* a, const struct Array* b){
-    for (int i = 0; i < a->length; ++i){
-        if (a->A[i] != b->A[i])
+bool equals(const struct Array* a, const struct Array* b) {
+    if (a->length != b->length) return false;
+
+    ConstArrayIterator it_a = const_iterator_begin(a);
+    ConstArrayIterator it_b = const_iterator_begin(b);
+    while (const_iterator_has_next(&it_a) && const_iterator_has_next(&it_b)) {
+        if (const_iterator_next(&it_a) != const_iterator_next(&it_b)) {
             return false;
+        }
     }
+    
     return true;
 }
 
 bool remove_value(struct Array* arr, int value) {
     if (!arr || !arr->A) return false;
 
-    for (int i = 0; i < arr->length; ++i) {
-        if (arr->A[i] == value) {
-            arr->A[i] = FLAGGED;
+    int v;
+    for (ArrayIterator it = iterator_begin(arr); iterator_has_next(&it); ) {
+        v = iterator_next(&it);
+        if (v == value) {
+            iterator_set(&it, FLAGGED);
             arr->flagged_count++;
         }
     }
@@ -48,13 +58,16 @@ bool remove_value(struct Array* arr, int value) {
 void compact(struct Array* arr) {
     if (!arr || !arr->A) return;
 
-    int new_len = 0;
-    for (int i = 0; i < arr->length; ++i) {
-        if (arr->A[i] != FLAGGED) {
-            arr->A[new_len++] = arr->A[i];
+    size_t write_index = 0;
+
+    for (ArrayIterator it = iterator_begin(arr); iterator_has_next(&it); ) {
+        int value = iterator_next(&it);
+        if (value != FLAGGED) {
+            arr->A[write_index++] = value;
         }
     }
-    arr->length = new_len;
+
+    arr->length = write_index;
     arr->flagged_count = 0;
 }
 
@@ -66,7 +79,6 @@ void pop_flagged(struct Array* arr) {
         arr->flagged_count--;
     }
 }
-
 
 struct Array slice(const struct Array* arr, int start, int end) {
     if (!arr || !arr->A || start < 0 || end > arr->length || start >= end) {

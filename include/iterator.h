@@ -2,7 +2,15 @@
 #define ARRAY_ITERATOR_H
 
 #include "array.h"
-#include <stddef.h>
+
+#if defined(_WIN32) || defined(_WIN64)
+    #ifndef _SSIZE_T_DEFINED
+        typedef long ssize_t;
+        #define _SSIZE_T_DEFINED
+    #endif
+#else
+    #include <sys/types.h>  
+#endif
 
 // ========================
 // Forward Iterator Section
