@@ -13,6 +13,7 @@ add_library(cds STATIC
     src/array.c
     src/array_utils.c
     src/binop.c
+    src/algo.c
     src/comparators.c
     src/main.c
     src/math.c

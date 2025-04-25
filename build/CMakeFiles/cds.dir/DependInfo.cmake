@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/gus/dev/DSA/vector/src/algo.c" "CMakeFiles/cds.dir/src/algo.c.o" "gcc" "CMakeFiles/cds.dir/src/algo.c.o.d"
   "/home/gus/dev/DSA/vector/src/array.c" "CMakeFiles/cds.dir/src/array.c.o" "gcc" "CMakeFiles/cds.dir/src/array.c.o.d"
   "/home/gus/dev/DSA/vector/src/array_utils.c" "CMakeFiles/cds.dir/src/array_utils.c.o" "gcc" "CMakeFiles/cds.dir/src/array_utils.c.o.d"
   "/home/gus/dev/DSA/vector/src/binop.c" "CMakeFiles/cds.dir/src/binop.c.o" "gcc" "CMakeFiles/cds.dir/src/binop.c.o.d"

@@ -57,4 +57,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cds.dir/DependInfo.cmake"
   "CMakeFiles/array_ec_test.dir/DependInfo.cmake"
   "CMakeFiles/b_array_test.dir/DependInfo.cmake"
+  "CMakeFiles/search_test.dir/DependInfo.cmake"
   )

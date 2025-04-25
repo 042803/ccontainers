@@ -165,6 +165,43 @@ b_array_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/build
 .PHONY : b_array_test/fast
 
+#=============================================================================
+# Target rules for targets named search_test
+
+# Build rule for target.
+search_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 search_test
+.PHONY : search_test
+
+# fast build rule for target.
+search_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/build
+.PHONY : search_test/fast
+
+src/algo.o: src/algo.c.o
+.PHONY : src/algo.o
+
+# target to build an object file
+src/algo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cds.dir/build.make CMakeFiles/cds.dir/src/algo.c.o
+.PHONY : src/algo.c.o
+
+src/algo.i: src/algo.c.i
+.PHONY : src/algo.i
+
+# target to preprocess a source file
+src/algo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cds.dir/build.make CMakeFiles/cds.dir/src/algo.c.i
+.PHONY : src/algo.c.i
+
+src/algo.s: src/algo.c.s
+.PHONY : src/algo.s
+
+# target to generate assembly for a file
+src/algo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cds.dir/build.make CMakeFiles/cds.dir/src/algo.c.s
+.PHONY : src/algo.c.s
+
 src/array.o: src/array.c.o
 .PHONY : src/array.o
 
@@ -405,6 +442,30 @@ tests/unit/b_array_test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/tests/unit/b_array_test.c.s
 .PHONY : tests/unit/b_array_test.c.s
 
+tests/unit/search_test.o: tests/unit/search_test.c.o
+.PHONY : tests/unit/search_test.o
+
+# target to build an object file
+tests/unit/search_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.o
+.PHONY : tests/unit/search_test.c.o
+
+tests/unit/search_test.i: tests/unit/search_test.c.i
+.PHONY : tests/unit/search_test.i
+
+# target to preprocess a source file
+tests/unit/search_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.i
+.PHONY : tests/unit/search_test.c.i
+
+tests/unit/search_test.s: tests/unit/search_test.c.s
+.PHONY : tests/unit/search_test.s
+
+# target to generate assembly for a file
+tests/unit/search_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.s
+.PHONY : tests/unit/search_test.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -417,6 +478,10 @@ help:
 	@echo "... array_ec_test"
 	@echo "... b_array_test"
 	@echo "... cds"
+	@echo "... search_test"
+	@echo "... src/algo.o"
+	@echo "... src/algo.i"
+	@echo "... src/algo.s"
 	@echo "... src/array.o"
 	@echo "... src/array.i"
 	@echo "... src/array.s"
@@ -447,6 +512,9 @@ help:
 	@echo "... tests/unit/b_array_test.o"
 	@echo "... tests/unit/b_array_test.i"
 	@echo "... tests/unit/b_array_test.s"
+	@echo "... tests/unit/search_test.o"
+	@echo "... tests/unit/search_test.i"
+	@echo "... tests/unit/search_test.s"
 .PHONY : help
 
 

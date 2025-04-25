@@ -6,21 +6,20 @@
 #include "../include/comparators.h"
 
 int binary_search(const struct Array* arr, int key){
-	int l = 0; 
-	int r = arr->length - 1; 
-	while (l <= r){
-		int m = (l + r) / 2;
-		if (arr->A[m] == key){
-			return m; 
-		} else if (arr->A[m] < key){
-			l = m + 1;
-		} else {
-			r = m - 1;
-		}
-	}
-	return -1; 
+    int l = 0; 
+    int r = arr->length - 1; 
+    while (l <= r){
+    	int m = (l + r) / 2;
+    	if (arr->A[m] == key){
+    		return m; 
+    	} else if (arr->A[m] < key){
+    		l = m + 1;
+    	} else {
+    		r = m - 1;
+    	}
+    }
+    return -1; 
 }
-
 
 int c_binary_search(const struct Array* arr, int key, comparator_fn cmp) {
     if (!arr || !arr->A) return -1;

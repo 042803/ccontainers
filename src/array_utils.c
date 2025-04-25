@@ -50,7 +50,6 @@ int internal_partition(struct Array* arr, int low, int high){
             swap(&arr->A[i], &arr->A[j]);
         }
     }
-
     swap(&arr->A[low], &arr->A[j]);
     return j;
 }
@@ -64,15 +63,13 @@ int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
     int i = low;
     int j = high;
 
-    while (i < j) {
-        do { i++; } while (i <= high && cmp(&arr->A[i], &pivot) <= 0);
-        do { j--; } while (j >= low && cmp(&arr->A[j], &pivot) > 0);
-
+    while (i < j) {                                             // previous
+        do { i++; } while (i <= high && cmp(&arr->A[i], &pivot) <= 0);// <=
+        do { j--; } while (j >= low && cmp(&arr->A[j], &pivot) > 0); // >
         if (i < j) {
             swap(&arr->A[i], &arr->A[j]);
         }
     }
-
     swap(&arr->A[low], &arr->A[j]);
     return j;
 }

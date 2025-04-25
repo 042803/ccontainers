@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cds.dir/src/algo.c.o"
+  "CMakeFiles/cds.dir/src/algo.c.o.d"
   "CMakeFiles/cds.dir/src/array.c.o"
   "CMakeFiles/cds.dir/src/array.c.o.d"
   "CMakeFiles/cds.dir/src/array_utils.c.o"

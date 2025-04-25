@@ -114,10 +114,24 @@ CMakeFiles/cds.dir/src/binop.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cds.dir/src/binop.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gus/dev/DSA/vector/src/binop.c -o CMakeFiles/cds.dir/src/binop.c.s
 
+CMakeFiles/cds.dir/src/algo.c.o: CMakeFiles/cds.dir/flags.make
+CMakeFiles/cds.dir/src/algo.c.o: /home/gus/dev/DSA/vector/src/algo.c
+CMakeFiles/cds.dir/src/algo.c.o: CMakeFiles/cds.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/cds.dir/src/algo.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/algo.c.o -MF CMakeFiles/cds.dir/src/algo.c.o.d -o CMakeFiles/cds.dir/src/algo.c.o -c /home/gus/dev/DSA/vector/src/algo.c
+
+CMakeFiles/cds.dir/src/algo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cds.dir/src/algo.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/gus/dev/DSA/vector/src/algo.c > CMakeFiles/cds.dir/src/algo.c.i
+
+CMakeFiles/cds.dir/src/algo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cds.dir/src/algo.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gus/dev/DSA/vector/src/algo.c -o CMakeFiles/cds.dir/src/algo.c.s
+
 CMakeFiles/cds.dir/src/comparators.c.o: CMakeFiles/cds.dir/flags.make
 CMakeFiles/cds.dir/src/comparators.c.o: /home/gus/dev/DSA/vector/src/comparators.c
 CMakeFiles/cds.dir/src/comparators.c.o: CMakeFiles/cds.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/cds.dir/src/comparators.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/cds.dir/src/comparators.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/comparators.c.o -MF CMakeFiles/cds.dir/src/comparators.c.o.d -o CMakeFiles/cds.dir/src/comparators.c.o -c /home/gus/dev/DSA/vector/src/comparators.c
 
 CMakeFiles/cds.dir/src/comparators.c.i: cmake_force
@@ -131,7 +145,7 @@ CMakeFiles/cds.dir/src/comparators.c.s: cmake_force
 CMakeFiles/cds.dir/src/main.c.o: CMakeFiles/cds.dir/flags.make
 CMakeFiles/cds.dir/src/main.c.o: /home/gus/dev/DSA/vector/src/main.c
 CMakeFiles/cds.dir/src/main.c.o: CMakeFiles/cds.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/cds.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/cds.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/main.c.o -MF CMakeFiles/cds.dir/src/main.c.o.d -o CMakeFiles/cds.dir/src/main.c.o -c /home/gus/dev/DSA/vector/src/main.c
 
 CMakeFiles/cds.dir/src/main.c.i: cmake_force
@@ -145,7 +159,7 @@ CMakeFiles/cds.dir/src/main.c.s: cmake_force
 CMakeFiles/cds.dir/src/math.c.o: CMakeFiles/cds.dir/flags.make
 CMakeFiles/cds.dir/src/math.c.o: /home/gus/dev/DSA/vector/src/math.c
 CMakeFiles/cds.dir/src/math.c.o: CMakeFiles/cds.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/cds.dir/src/math.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/cds.dir/src/math.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/math.c.o -MF CMakeFiles/cds.dir/src/math.c.o.d -o CMakeFiles/cds.dir/src/math.c.o -c /home/gus/dev/DSA/vector/src/math.c
 
 CMakeFiles/cds.dir/src/math.c.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/cds.dir/src/math.c.s: cmake_force
 CMakeFiles/cds.dir/src/msc.c.o: CMakeFiles/cds.dir/flags.make
 CMakeFiles/cds.dir/src/msc.c.o: /home/gus/dev/DSA/vector/src/msc.c
 CMakeFiles/cds.dir/src/msc.c.o: CMakeFiles/cds.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/cds.dir/src/msc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/cds.dir/src/msc.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/msc.c.o -MF CMakeFiles/cds.dir/src/msc.c.o.d -o CMakeFiles/cds.dir/src/msc.c.o -c /home/gus/dev/DSA/vector/src/msc.c
 
 CMakeFiles/cds.dir/src/msc.c.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/cds.dir/src/msc.c.s: cmake_force
 CMakeFiles/cds.dir/src/search.c.o: CMakeFiles/cds.dir/flags.make
 CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c
 CMakeFiles/cds.dir/src/search.c.o: CMakeFiles/cds.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/cds.dir/src/search.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/cds.dir/src/search.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cds.dir/src/search.c.o -MF CMakeFiles/cds.dir/src/search.c.o.d -o CMakeFiles/cds.dir/src/search.c.o -c /home/gus/dev/DSA/vector/src/search.c
 
 CMakeFiles/cds.dir/src/search.c.i: cmake_force
@@ -189,6 +203,7 @@ cds_OBJECTS = \
 "CMakeFiles/cds.dir/src/array.c.o" \
 "CMakeFiles/cds.dir/src/array_utils.c.o" \
 "CMakeFiles/cds.dir/src/binop.c.o" \
+"CMakeFiles/cds.dir/src/algo.c.o" \
 "CMakeFiles/cds.dir/src/comparators.c.o" \
 "CMakeFiles/cds.dir/src/main.c.o" \
 "CMakeFiles/cds.dir/src/math.c.o" \
@@ -201,6 +216,7 @@ cds_EXTERNAL_OBJECTS =
 libcds.a: CMakeFiles/cds.dir/src/array.c.o
 libcds.a: CMakeFiles/cds.dir/src/array_utils.c.o
 libcds.a: CMakeFiles/cds.dir/src/binop.c.o
+libcds.a: CMakeFiles/cds.dir/src/algo.c.o
 libcds.a: CMakeFiles/cds.dir/src/comparators.c.o
 libcds.a: CMakeFiles/cds.dir/src/main.c.o
 libcds.a: CMakeFiles/cds.dir/src/math.c.o
@@ -208,7 +224,7 @@ libcds.a: CMakeFiles/cds.dir/src/msc.c.o
 libcds.a: CMakeFiles/cds.dir/src/search.c.o
 libcds.a: CMakeFiles/cds.dir/build.make
 libcds.a: CMakeFiles/cds.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C static library libcds.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gus/dev/DSA/vector/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C static library libcds.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/cds.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cds.dir/link.txt --verbose=$(VERBOSE)
 

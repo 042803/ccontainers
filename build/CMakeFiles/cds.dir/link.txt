@@ -1,2 +1,2 @@
-/usr/bin/ar qc libcds.a CMakeFiles/cds.dir/src/array.c.o CMakeFiles/cds.dir/src/array_utils.c.o CMakeFiles/cds.dir/src/binop.c.o CMakeFiles/cds.dir/src/comparators.c.o CMakeFiles/cds.dir/src/main.c.o CMakeFiles/cds.dir/src/math.c.o CMakeFiles/cds.dir/src/msc.c.o CMakeFiles/cds.dir/src/search.c.o
+/usr/bin/ar qc libcds.a CMakeFiles/cds.dir/src/array.c.o CMakeFiles/cds.dir/src/array_utils.c.o CMakeFiles/cds.dir/src/binop.c.o CMakeFiles/cds.dir/src/algo.c.o CMakeFiles/cds.dir/src/comparators.c.o CMakeFiles/cds.dir/src/main.c.o CMakeFiles/cds.dir/src/math.c.o CMakeFiles/cds.dir/src/msc.c.o CMakeFiles/cds.dir/src/search.c.o
 /usr/bin/ranlib libcds.a
