@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/gus/dev/DSA/vector/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
