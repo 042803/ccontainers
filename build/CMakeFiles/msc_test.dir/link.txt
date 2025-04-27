@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/msc_test.dir/link.d CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o -o msc_test  libcds.a /usr/lib/libcunit.so

@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/bin_op_test.dir/link.d CMakeFiles/bin_op_test.dir/tests/unit/bin_op_test.c.o -o bin_op_test  libcds.a /usr/lib/libcunit.so

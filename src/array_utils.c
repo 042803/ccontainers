@@ -53,7 +53,8 @@ int internal_partition(struct Array* arr, int low, int high){
     swap(&arr->A[low], &arr->A[j]);
     return j;
 }
-
+/*
+ * OLD IMPLEMENTATION, CAUSING SEG FAULT
 int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
     if (!arr || !arr->A || low < 0 || high >= (int)arr->length || low >= high) {
         return -1;
@@ -73,7 +74,33 @@ int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
     swap(&arr->A[low], &arr->A[j]);
     return j;
 }
+*/
 
+int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
+
+    if (!arr || !arr->A || !cmp || low < 0 || high > (int)arr->length || low >= high) {
+        return -1;
+    }
+
+    int pivot_idx = low + (high - low) / 2;
+    int pivot = arr->A[pivot_idx];
+    swap(&arr->A[low], &arr->A[pivot_idx]); 
+
+    int i = low + 1;
+    int j = high - 1; 
+
+    while (1) {
+        while (i <= j && cmp(&arr->A[i], &pivot) < 0) i++;
+        while (i <= j && cmp(&arr->A[j], &pivot) > 0) j--;
+        
+        if (i >= j) break;
+        swap(&arr->A[i], &arr->A[j]);
+        i++;
+        j--;
+    }
+    swap(&arr->A[low], &arr->A[j]);
+    return j;
+}
 void internal_quicksort(struct Array* arr, int low, int high){
     if (low < high){
         int j = internal_partition(arr, low, high);
@@ -81,7 +108,7 @@ void internal_quicksort(struct Array* arr, int low, int high){
         internal_quicksort(arr, j + 1, high);
     }
 }
-
+/*
 void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
     if (low < high) {
         int j = c_partition(arr, low, high, cmp);
@@ -89,7 +116,25 @@ void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
         c_quicksort(arr, j + 1, high, cmp);
     }
 }
+*/
 
+void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
+    #define MAX_STACK_DEPTH 10000
+    static int depth = 0;
+    if (depth++ > MAX_STACK_DEPTH) {
+        depth--;
+        return;
+    }
+
+    if (high - low > 1) { 
+        int j = c_partition(arr, low, high, cmp);
+        if (j != -1) { 
+            c_quicksort(arr, low, j, cmp);
+            c_quicksort(arr, j + 1, high, cmp);
+        }
+    }
+    depth--;
+}
 void internal_merge(struct Array* arr, int low, int mid, int high){
     struct Array temp = init(arr->size);
     int i = low, j = mid + 1, k = low;

@@ -38,4 +38,10 @@ CMakeFiles/cds.dir/src/algo.c.o: /home/gus/dev/DSA/vector/src/algo.c \
  /home/gus/dev/DSA/vector/src/../include/comparators.h \
  /home/gus/dev/DSA/vector/src/../include/array_utils.h \
  /home/gus/dev/DSA/vector/src/../include/msc.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/pthread_stack_min-dynamic.h \
+ /usr/include/bits/pthread_stack_min.h /usr/include/bits/posix2_lim.h \
  /home/gus/dev/DSA/vector/src/../include/comparators.h

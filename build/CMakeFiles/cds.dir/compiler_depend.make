@@ -15,7 +15,12 @@ CMakeFiles/cds.dir/src/algo.c.o: /home/gus/dev/DSA/vector/src/algo.c \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/local_lim.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/posix2_lim.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/bits/pthread_stack_min.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
@@ -53,15 +58,19 @@ CMakeFiles/cds.dir/src/algo.c.o: /home/gus/dev/DSA/vector/src/algo.c \
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/limits.h \
+  /usr/include/linux/limits.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdbool.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h
 
 CMakeFiles/cds.dir/src/array.c.o: /home/gus/dev/DSA/vector/src/array.c \
   /home/gus/dev/DSA/vector/include/array.h \
@@ -272,7 +281,12 @@ CMakeFiles/cds.dir/src/main.c.o: /home/gus/dev/DSA/vector/src/main.c \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/local_lim.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/posix2_lim.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/bits/pthread_stack_min.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
@@ -310,15 +324,19 @@ CMakeFiles/cds.dir/src/main.c.o: /home/gus/dev/DSA/vector/src/main.c \
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/limits.h \
+  /usr/include/linux/limits.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdbool.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h
 
 CMakeFiles/cds.dir/src/math.c.o: /home/gus/dev/DSA/vector/src/math.c \
   /home/gus/dev/DSA/vector/include/array.h \
@@ -516,29 +534,13 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h
 
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h:
-
-/usr/include/bits/pthread_stack_min.h:
-
-/usr/include/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/bits/posix2_lim.h:
-
 /home/gus/dev/DSA/vector/src/msc.c:
 
 /home/gus/dev/DSA/vector/src/math.c:
 
 /home/gus/dev/DSA/vector/include/math.h:
 
-/usr/include/bits/posix1_lim.h:
-
-/home/gus/dev/DSA/vector/include/binop.h:
-
 /home/gus/dev/DSA/vector/src/binop.c:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h:
-
-/home/gus/dev/DSA/vector/src/array_utils.c:
 
 /home/gus/dev/DSA/vector/include/iterator.h:
 
@@ -550,11 +552,11 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /home/gus/dev/DSA/vector/src/array.c:
 
+/home/gus/dev/DSA/vector/src/array_utils.c:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdbool.h:
-
-/usr/include/limits.h:
-
-/usr/include/bits/types/FILE.h:
 
 /home/gus/dev/DSA/vector/include/vector.h:
 
@@ -562,15 +564,27 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h:
 
-/usr/include/bits/types.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h:
+
+/usr/include/sys/select.h:
 
 /usr/include/sys/cdefs.h:
 
-/usr/include/bits/time64.h:
-
-/usr/include/bits/byteswap.h:
+/usr/include/stdlib.h:
 
 /usr/include/bits/stdint-intn.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/home/gus/dev/DSA/vector/include/binop.h:
+
+/usr/include/bits/posix1_lim.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h:
 
@@ -586,9 +600,7 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /usr/include/features-time64.h:
 
-/usr/include/stdc-predef.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
+/usr/include/bits/pthread_stack_min.h:
 
 /home/gus/dev/DSA/vector/src/search.c:
 
@@ -618,19 +630,21 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /usr/include/bits/types/struct_timespec.h:
 
+/usr/include/sys/types.h:
+
+/home/gus/dev/DSA/vector/src/algo.c:
+
 /usr/include/bits/struct_rwlock.h:
 
 /usr/include/bits/types/time_t.h:
 
-/usr/include/stdlib.h:
-
 /usr/include/alloca.h:
 
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/time64.h:
+
 /usr/include/bits/endianness.h:
-
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/bits/stdlib-float.h:
 
 /usr/include/bits/types/sigset_t.h:
 
@@ -640,6 +654,20 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /usr/include/bits/floatn.h:
 
+/usr/include/bits/types.h:
+
+/usr/include/bits/types/clock_t.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/types/__FILE.h:
+
 /usr/include/bits/types/__fpos_t.h:
 
 /usr/include/bits/wordsize.h:
@@ -647,10 +675,6 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 /usr/include/bits/local_lim.h:
 
 /usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/bits/types/clock_t.h:
 
 /usr/include/bits/atomic_wide_counter.h:
 
@@ -664,11 +688,13 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 
 /usr/include/bits/types/struct_FILE.h:
 
-/usr/include/sys/select.h:
-
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/bits/types/struct_timeval.h:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/types/timer_t.h:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
@@ -677,11 +703,3 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 /usr/include/bits/waitstatus.h:
 
 /usr/include/features.h:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/stdio.h:
-
-/home/gus/dev/DSA/vector/src/algo.c:
-
-/usr/include/sys/types.h:

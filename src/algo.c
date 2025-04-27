@@ -46,6 +46,7 @@ void quick_sort(struct Array* arr){
 }
 
 void c_quick_sort(struct Array* arr, comparator_fn cmp){
+    if (!arr || !cmp) return;    
     if (arr->flagged_count > 0)
         compact(arr);
     if (arr->length > 1){

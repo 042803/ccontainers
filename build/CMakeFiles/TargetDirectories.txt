@@ -1,6 +1,10 @@
 /home/gus/dev/DSA/vector/build/CMakeFiles/cds.dir
+/home/gus/dev/DSA/vector/build/CMakeFiles/algo_test.dir
 /home/gus/dev/DSA/vector/build/CMakeFiles/array_ec_test.dir
 /home/gus/dev/DSA/vector/build/CMakeFiles/b_array_test.dir
+/home/gus/dev/DSA/vector/build/CMakeFiles/bin_op_test.dir
+/home/gus/dev/DSA/vector/build/CMakeFiles/math_test.dir
+/home/gus/dev/DSA/vector/build/CMakeFiles/msc_test.dir
 /home/gus/dev/DSA/vector/build/CMakeFiles/search_test.dir
 /home/gus/dev/DSA/vector/build/CMakeFiles/test.dir
 /home/gus/dev/DSA/vector/build/CMakeFiles/edit_cache.dir

@@ -6,9 +6,6 @@
 #include "../include/const_iterator.h"
 #include <limits.h> 
 
-#define FLAGGED INT_MAX
-#define SHOULD_COMPACT(arr) ((arr)->flagged_count >= (arr)->length / 4)
-
 bool equals_not_sorted(struct Array* a, struct Array* b){
     if (a->length != b->length)
         return false;

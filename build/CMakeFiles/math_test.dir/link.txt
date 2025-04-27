@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/math_test.dir/link.d CMakeFiles/math_test.dir/tests/unit/math_test.c.o -o math_test  libcds.a /usr/lib/libcunit.so

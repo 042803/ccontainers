@@ -19,22 +19,22 @@ void append(struct Array* dst, const struct Array* src){
 }
 
 struct Array merge(const struct Array* arr1, const struct Array* arr2) {
-	struct Array temp = init(arr1->length + arr2->length);
+    struct Array temp = init(arr1->length + arr2->length);
 
-	int i = 0, j = 0, k = 0;
-	while (i < arr1->length && j < arr2->length) {
-		if (arr1->A[i] < arr2->A[j]) {
-			temp.A[k++] = arr1->A[i++];
-		} else {
-			temp.A[k++] = arr2->A[j++];
-		}
-	}
-	while (i < arr1->length) 
-		temp.A[k++] = arr1->A[i++];
-	while (j < arr2->length) 
-		temp.A[k++] = arr2->A[j++];
-	temp.length = k;
-	return temp;
+    int i = 0, j = 0, k = 0;
+    while (i < arr1->length && j < arr2->length) {
+    	if (arr1->A[i] < arr2->A[j]) {
+    	    temp.A[k++] = arr1->A[i++];
+    	} else {
+	    temp.A[k++] = arr2->A[j++];
+        }
+    }
+    while (i < arr1->length) 
+    	temp.A[k++] = arr1->A[i++];
+    while (j < arr2->length) 
+        temp.A[k++] = arr2->A[j++];    
+    temp.length = k;
+    return temp;
 }
 
 
