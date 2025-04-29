@@ -140,108 +140,43 @@ cds/fast:
 .PHONY : cds/fast
 
 #=============================================================================
-# Target rules for targets named algo_test
+# Target rules for targets named array_s_test
 
 # Build rule for target.
-algo_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 algo_test
-.PHONY : algo_test
+array_s_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_s_test
+.PHONY : array_s_test
 
 # fast build rule for target.
-algo_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algo_test.dir/build.make CMakeFiles/algo_test.dir/build
-.PHONY : algo_test/fast
+array_s_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_s_test.dir/build.make CMakeFiles/array_s_test.dir/build
+.PHONY : array_s_test/fast
 
 #=============================================================================
-# Target rules for targets named array_ec_test
+# Target rules for targets named ops_s_test
 
 # Build rule for target.
-array_ec_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_ec_test
-.PHONY : array_ec_test
+ops_s_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ops_s_test
+.PHONY : ops_s_test
 
 # fast build rule for target.
-array_ec_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ec_test.dir/build.make CMakeFiles/array_ec_test.dir/build
-.PHONY : array_ec_test/fast
+ops_s_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ops_s_test.dir/build.make CMakeFiles/ops_s_test.dir/build
+.PHONY : ops_s_test/fast
 
 #=============================================================================
-# Target rules for targets named array_ops_test
+# Target rules for targets named search_s_test
 
 # Build rule for target.
-array_ops_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_ops_test
-.PHONY : array_ops_test
+search_s_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 search_s_test
+.PHONY : search_s_test
 
 # fast build rule for target.
-array_ops_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/build
-.PHONY : array_ops_test/fast
-
-#=============================================================================
-# Target rules for targets named b_array_test
-
-# Build rule for target.
-b_array_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 b_array_test
-.PHONY : b_array_test
-
-# fast build rule for target.
-b_array_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/build
-.PHONY : b_array_test/fast
-
-#=============================================================================
-# Target rules for targets named bin_op_test
-
-# Build rule for target.
-bin_op_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bin_op_test
-.PHONY : bin_op_test
-
-# fast build rule for target.
-bin_op_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bin_op_test.dir/build.make CMakeFiles/bin_op_test.dir/build
-.PHONY : bin_op_test/fast
-
-#=============================================================================
-# Target rules for targets named math_test
-
-# Build rule for target.
-math_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 math_test
-.PHONY : math_test
-
-# fast build rule for target.
-math_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_test.dir/build.make CMakeFiles/math_test.dir/build
-.PHONY : math_test/fast
-
-#=============================================================================
-# Target rules for targets named msc_test
-
-# Build rule for target.
-msc_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msc_test
-.PHONY : msc_test
-
-# fast build rule for target.
-msc_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/msc_test.dir/build.make CMakeFiles/msc_test.dir/build
-.PHONY : msc_test/fast
-
-#=============================================================================
-# Target rules for targets named search_test
-
-# Build rule for target.
-search_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 search_test
-.PHONY : search_test
-
-# fast build rule for target.
-search_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/build
-.PHONY : search_test/fast
+search_s_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_s_test.dir/build.make CMakeFiles/search_s_test.dir/build
+.PHONY : search_s_test/fast
 
 src/algo.o: src/algo.c.o
 .PHONY : src/algo.o
@@ -459,197 +394,77 @@ src/search.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cds.dir/build.make CMakeFiles/cds.dir/src/search.c.s
 .PHONY : src/search.c.s
 
-tests/unit/algo_test.o: tests/unit/algo_test.c.o
-.PHONY : tests/unit/algo_test.o
+tests/stress/array_s_test.o: tests/stress/array_s_test.c.o
+.PHONY : tests/stress/array_s_test.o
 
 # target to build an object file
-tests/unit/algo_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algo_test.dir/build.make CMakeFiles/algo_test.dir/tests/unit/algo_test.c.o
-.PHONY : tests/unit/algo_test.c.o
+tests/stress/array_s_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_s_test.dir/build.make CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o
+.PHONY : tests/stress/array_s_test.c.o
 
-tests/unit/algo_test.i: tests/unit/algo_test.c.i
-.PHONY : tests/unit/algo_test.i
+tests/stress/array_s_test.i: tests/stress/array_s_test.c.i
+.PHONY : tests/stress/array_s_test.i
 
 # target to preprocess a source file
-tests/unit/algo_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algo_test.dir/build.make CMakeFiles/algo_test.dir/tests/unit/algo_test.c.i
-.PHONY : tests/unit/algo_test.c.i
+tests/stress/array_s_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_s_test.dir/build.make CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.i
+.PHONY : tests/stress/array_s_test.c.i
 
-tests/unit/algo_test.s: tests/unit/algo_test.c.s
-.PHONY : tests/unit/algo_test.s
+tests/stress/array_s_test.s: tests/stress/array_s_test.c.s
+.PHONY : tests/stress/array_s_test.s
 
 # target to generate assembly for a file
-tests/unit/algo_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algo_test.dir/build.make CMakeFiles/algo_test.dir/tests/unit/algo_test.c.s
-.PHONY : tests/unit/algo_test.c.s
+tests/stress/array_s_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_s_test.dir/build.make CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.s
+.PHONY : tests/stress/array_s_test.c.s
 
-tests/unit/array_ec_test.o: tests/unit/array_ec_test.c.o
-.PHONY : tests/unit/array_ec_test.o
+tests/stress/ops_s_test.o: tests/stress/ops_s_test.c.o
+.PHONY : tests/stress/ops_s_test.o
 
 # target to build an object file
-tests/unit/array_ec_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ec_test.dir/build.make CMakeFiles/array_ec_test.dir/tests/unit/array_ec_test.c.o
-.PHONY : tests/unit/array_ec_test.c.o
+tests/stress/ops_s_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ops_s_test.dir/build.make CMakeFiles/ops_s_test.dir/tests/stress/ops_s_test.c.o
+.PHONY : tests/stress/ops_s_test.c.o
 
-tests/unit/array_ec_test.i: tests/unit/array_ec_test.c.i
-.PHONY : tests/unit/array_ec_test.i
+tests/stress/ops_s_test.i: tests/stress/ops_s_test.c.i
+.PHONY : tests/stress/ops_s_test.i
 
 # target to preprocess a source file
-tests/unit/array_ec_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ec_test.dir/build.make CMakeFiles/array_ec_test.dir/tests/unit/array_ec_test.c.i
-.PHONY : tests/unit/array_ec_test.c.i
+tests/stress/ops_s_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ops_s_test.dir/build.make CMakeFiles/ops_s_test.dir/tests/stress/ops_s_test.c.i
+.PHONY : tests/stress/ops_s_test.c.i
 
-tests/unit/array_ec_test.s: tests/unit/array_ec_test.c.s
-.PHONY : tests/unit/array_ec_test.s
+tests/stress/ops_s_test.s: tests/stress/ops_s_test.c.s
+.PHONY : tests/stress/ops_s_test.s
 
 # target to generate assembly for a file
-tests/unit/array_ec_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ec_test.dir/build.make CMakeFiles/array_ec_test.dir/tests/unit/array_ec_test.c.s
-.PHONY : tests/unit/array_ec_test.c.s
+tests/stress/ops_s_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ops_s_test.dir/build.make CMakeFiles/ops_s_test.dir/tests/stress/ops_s_test.c.s
+.PHONY : tests/stress/ops_s_test.c.s
 
-tests/unit/array_ops_test.o: tests/unit/array_ops_test.c.o
-.PHONY : tests/unit/array_ops_test.o
+tests/stress/search_s_test.o: tests/stress/search_s_test.c.o
+.PHONY : tests/stress/search_s_test.o
 
 # target to build an object file
-tests/unit/array_ops_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o
-.PHONY : tests/unit/array_ops_test.c.o
+tests/stress/search_s_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_s_test.dir/build.make CMakeFiles/search_s_test.dir/tests/stress/search_s_test.c.o
+.PHONY : tests/stress/search_s_test.c.o
 
-tests/unit/array_ops_test.i: tests/unit/array_ops_test.c.i
-.PHONY : tests/unit/array_ops_test.i
-
-# target to preprocess a source file
-tests/unit/array_ops_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.i
-.PHONY : tests/unit/array_ops_test.c.i
-
-tests/unit/array_ops_test.s: tests/unit/array_ops_test.c.s
-.PHONY : tests/unit/array_ops_test.s
-
-# target to generate assembly for a file
-tests/unit/array_ops_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.s
-.PHONY : tests/unit/array_ops_test.c.s
-
-tests/unit/b_array_test.o: tests/unit/b_array_test.c.o
-.PHONY : tests/unit/b_array_test.o
-
-# target to build an object file
-tests/unit/b_array_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/tests/unit/b_array_test.c.o
-.PHONY : tests/unit/b_array_test.c.o
-
-tests/unit/b_array_test.i: tests/unit/b_array_test.c.i
-.PHONY : tests/unit/b_array_test.i
+tests/stress/search_s_test.i: tests/stress/search_s_test.c.i
+.PHONY : tests/stress/search_s_test.i
 
 # target to preprocess a source file
-tests/unit/b_array_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/tests/unit/b_array_test.c.i
-.PHONY : tests/unit/b_array_test.c.i
+tests/stress/search_s_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_s_test.dir/build.make CMakeFiles/search_s_test.dir/tests/stress/search_s_test.c.i
+.PHONY : tests/stress/search_s_test.c.i
 
-tests/unit/b_array_test.s: tests/unit/b_array_test.c.s
-.PHONY : tests/unit/b_array_test.s
-
-# target to generate assembly for a file
-tests/unit/b_array_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/b_array_test.dir/build.make CMakeFiles/b_array_test.dir/tests/unit/b_array_test.c.s
-.PHONY : tests/unit/b_array_test.c.s
-
-tests/unit/bin_op_test.o: tests/unit/bin_op_test.c.o
-.PHONY : tests/unit/bin_op_test.o
-
-# target to build an object file
-tests/unit/bin_op_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bin_op_test.dir/build.make CMakeFiles/bin_op_test.dir/tests/unit/bin_op_test.c.o
-.PHONY : tests/unit/bin_op_test.c.o
-
-tests/unit/bin_op_test.i: tests/unit/bin_op_test.c.i
-.PHONY : tests/unit/bin_op_test.i
-
-# target to preprocess a source file
-tests/unit/bin_op_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bin_op_test.dir/build.make CMakeFiles/bin_op_test.dir/tests/unit/bin_op_test.c.i
-.PHONY : tests/unit/bin_op_test.c.i
-
-tests/unit/bin_op_test.s: tests/unit/bin_op_test.c.s
-.PHONY : tests/unit/bin_op_test.s
+tests/stress/search_s_test.s: tests/stress/search_s_test.c.s
+.PHONY : tests/stress/search_s_test.s
 
 # target to generate assembly for a file
-tests/unit/bin_op_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bin_op_test.dir/build.make CMakeFiles/bin_op_test.dir/tests/unit/bin_op_test.c.s
-.PHONY : tests/unit/bin_op_test.c.s
-
-tests/unit/math_test.o: tests/unit/math_test.c.o
-.PHONY : tests/unit/math_test.o
-
-# target to build an object file
-tests/unit/math_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_test.dir/build.make CMakeFiles/math_test.dir/tests/unit/math_test.c.o
-.PHONY : tests/unit/math_test.c.o
-
-tests/unit/math_test.i: tests/unit/math_test.c.i
-.PHONY : tests/unit/math_test.i
-
-# target to preprocess a source file
-tests/unit/math_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_test.dir/build.make CMakeFiles/math_test.dir/tests/unit/math_test.c.i
-.PHONY : tests/unit/math_test.c.i
-
-tests/unit/math_test.s: tests/unit/math_test.c.s
-.PHONY : tests/unit/math_test.s
-
-# target to generate assembly for a file
-tests/unit/math_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/math_test.dir/build.make CMakeFiles/math_test.dir/tests/unit/math_test.c.s
-.PHONY : tests/unit/math_test.c.s
-
-tests/unit/msc_test.o: tests/unit/msc_test.c.o
-.PHONY : tests/unit/msc_test.o
-
-# target to build an object file
-tests/unit/msc_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/msc_test.dir/build.make CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o
-.PHONY : tests/unit/msc_test.c.o
-
-tests/unit/msc_test.i: tests/unit/msc_test.c.i
-.PHONY : tests/unit/msc_test.i
-
-# target to preprocess a source file
-tests/unit/msc_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/msc_test.dir/build.make CMakeFiles/msc_test.dir/tests/unit/msc_test.c.i
-.PHONY : tests/unit/msc_test.c.i
-
-tests/unit/msc_test.s: tests/unit/msc_test.c.s
-.PHONY : tests/unit/msc_test.s
-
-# target to generate assembly for a file
-tests/unit/msc_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/msc_test.dir/build.make CMakeFiles/msc_test.dir/tests/unit/msc_test.c.s
-.PHONY : tests/unit/msc_test.c.s
-
-tests/unit/search_test.o: tests/unit/search_test.c.o
-.PHONY : tests/unit/search_test.o
-
-# target to build an object file
-tests/unit/search_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.o
-.PHONY : tests/unit/search_test.c.o
-
-tests/unit/search_test.i: tests/unit/search_test.c.i
-.PHONY : tests/unit/search_test.i
-
-# target to preprocess a source file
-tests/unit/search_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.i
-.PHONY : tests/unit/search_test.c.i
-
-tests/unit/search_test.s: tests/unit/search_test.c.s
-.PHONY : tests/unit/search_test.s
-
-# target to generate assembly for a file
-tests/unit/search_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_test.dir/build.make CMakeFiles/search_test.dir/tests/unit/search_test.c.s
-.PHONY : tests/unit/search_test.c.s
+tests/stress/search_s_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/search_s_test.dir/build.make CMakeFiles/search_s_test.dir/tests/stress/search_s_test.c.s
+.PHONY : tests/stress/search_s_test.c.s
 
 # Help Target
 help:
@@ -660,15 +475,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... algo_test"
-	@echo "... array_ec_test"
-	@echo "... array_ops_test"
-	@echo "... b_array_test"
-	@echo "... bin_op_test"
+	@echo "... array_s_test"
 	@echo "... cds"
-	@echo "... math_test"
-	@echo "... msc_test"
-	@echo "... search_test"
+	@echo "... ops_s_test"
+	@echo "... search_s_test"
 	@echo "... src/algo.o"
 	@echo "... src/algo.i"
 	@echo "... src/algo.s"
@@ -696,30 +506,15 @@ help:
 	@echo "... src/search.o"
 	@echo "... src/search.i"
 	@echo "... src/search.s"
-	@echo "... tests/unit/algo_test.o"
-	@echo "... tests/unit/algo_test.i"
-	@echo "... tests/unit/algo_test.s"
-	@echo "... tests/unit/array_ec_test.o"
-	@echo "... tests/unit/array_ec_test.i"
-	@echo "... tests/unit/array_ec_test.s"
-	@echo "... tests/unit/array_ops_test.o"
-	@echo "... tests/unit/array_ops_test.i"
-	@echo "... tests/unit/array_ops_test.s"
-	@echo "... tests/unit/b_array_test.o"
-	@echo "... tests/unit/b_array_test.i"
-	@echo "... tests/unit/b_array_test.s"
-	@echo "... tests/unit/bin_op_test.o"
-	@echo "... tests/unit/bin_op_test.i"
-	@echo "... tests/unit/bin_op_test.s"
-	@echo "... tests/unit/math_test.o"
-	@echo "... tests/unit/math_test.i"
-	@echo "... tests/unit/math_test.s"
-	@echo "... tests/unit/msc_test.o"
-	@echo "... tests/unit/msc_test.i"
-	@echo "... tests/unit/msc_test.s"
-	@echo "... tests/unit/search_test.o"
-	@echo "... tests/unit/search_test.i"
-	@echo "... tests/unit/search_test.s"
+	@echo "... tests/stress/array_s_test.o"
+	@echo "... tests/stress/array_s_test.i"
+	@echo "... tests/stress/array_s_test.s"
+	@echo "... tests/stress/ops_s_test.o"
+	@echo "... tests/stress/ops_s_test.i"
+	@echo "... tests/stress/ops_s_test.s"
+	@echo "... tests/stress/search_s_test.o"
+	@echo "... tests/stress/search_s_test.i"
+	@echo "... tests/stress/search_s_test.s"
 .PHONY : help
 
 

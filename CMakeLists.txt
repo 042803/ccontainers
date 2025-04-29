@@ -22,7 +22,7 @@ add_library(cds STATIC
 )
 
 file(GLOB UNIT_TESTS "tests/unit/*.c")
-
+file(GLOB UNIT_TESTS "tests/stress/*.c")
 
 include_directories(/usr/include/CUnit)
 
