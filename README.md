@@ -11,8 +11,7 @@ Designed for clarity, performance, and ease of integration, the library is writt
 - Built-in and user-defined comparator support for sorting and searching
 - Range operations: fill, set, search, and conditional deletion
 - Unit, stress, and performance test suites
-- Clean, modular structure with clear separation between headers and implementations
-
+- Clean, modular structure, easy to modify and adapt as needed
 ## Roadmap
 
 Planned features include:
