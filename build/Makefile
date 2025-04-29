@@ -166,6 +166,19 @@ array_ec_test/fast:
 .PHONY : array_ec_test/fast
 
 #=============================================================================
+# Target rules for targets named array_ops_test
+
+# Build rule for target.
+array_ops_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 array_ops_test
+.PHONY : array_ops_test
+
+# fast build rule for target.
+array_ops_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/build
+.PHONY : array_ops_test/fast
+
+#=============================================================================
 # Target rules for targets named b_array_test
 
 # Build rule for target.
@@ -494,6 +507,30 @@ tests/unit/array_ec_test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ec_test.dir/build.make CMakeFiles/array_ec_test.dir/tests/unit/array_ec_test.c.s
 .PHONY : tests/unit/array_ec_test.c.s
 
+tests/unit/array_ops_test.o: tests/unit/array_ops_test.c.o
+.PHONY : tests/unit/array_ops_test.o
+
+# target to build an object file
+tests/unit/array_ops_test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o
+.PHONY : tests/unit/array_ops_test.c.o
+
+tests/unit/array_ops_test.i: tests/unit/array_ops_test.c.i
+.PHONY : tests/unit/array_ops_test.i
+
+# target to preprocess a source file
+tests/unit/array_ops_test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.i
+.PHONY : tests/unit/array_ops_test.c.i
+
+tests/unit/array_ops_test.s: tests/unit/array_ops_test.c.s
+.PHONY : tests/unit/array_ops_test.s
+
+# target to generate assembly for a file
+tests/unit/array_ops_test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/array_ops_test.dir/build.make CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.s
+.PHONY : tests/unit/array_ops_test.c.s
+
 tests/unit/b_array_test.o: tests/unit/b_array_test.c.o
 .PHONY : tests/unit/b_array_test.o
 
@@ -625,6 +662,7 @@ help:
 	@echo "... test"
 	@echo "... algo_test"
 	@echo "... array_ec_test"
+	@echo "... array_ops_test"
 	@echo "... b_array_test"
 	@echo "... bin_op_test"
 	@echo "... cds"
@@ -664,6 +702,9 @@ help:
 	@echo "... tests/unit/array_ec_test.o"
 	@echo "... tests/unit/array_ec_test.i"
 	@echo "... tests/unit/array_ec_test.s"
+	@echo "... tests/unit/array_ops_test.o"
+	@echo "... tests/unit/array_ops_test.i"
+	@echo "... tests/unit/array_ops_test.s"
 	@echo "... tests/unit/b_array_test.o"
 	@echo "... tests/unit/b_array_test.i"
 	@echo "... tests/unit/b_array_test.s"
