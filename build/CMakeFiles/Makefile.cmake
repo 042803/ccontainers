@@ -55,12 +55,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cds.dir/DependInfo.cmake"
-  "CMakeFiles/algo_test.dir/DependInfo.cmake"
-  "CMakeFiles/array_ec_test.dir/DependInfo.cmake"
-  "CMakeFiles/array_ops_test.dir/DependInfo.cmake"
-  "CMakeFiles/b_array_test.dir/DependInfo.cmake"
-  "CMakeFiles/bin_op_test.dir/DependInfo.cmake"
-  "CMakeFiles/math_test.dir/DependInfo.cmake"
-  "CMakeFiles/msc_test.dir/DependInfo.cmake"
-  "CMakeFiles/search_test.dir/DependInfo.cmake"
+  "CMakeFiles/array_s_test.dir/DependInfo.cmake"
+  "CMakeFiles/ops_s_test.dir/DependInfo.cmake"
+  "CMakeFiles/search_s_test.dir/DependInfo.cmake"
   )

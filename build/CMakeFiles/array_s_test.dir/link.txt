@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/array_s_test.dir/link.d CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o -o array_s_test  libcds.a /usr/lib/libcunit.so
