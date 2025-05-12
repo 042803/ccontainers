@@ -140,6 +140,7 @@ CMakeFiles/cds.dir/src/array_utils.c.o: /home/gus/dev/DSA/vector/src/array_utils
   /home/gus/dev/DSA/vector/include/array_utils.h \
   /home/gus/dev/DSA/vector/include/comparators.h \
   /usr/include/alloca.h \
+  /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/endian.h \
@@ -541,6 +542,8 @@ CMakeFiles/cds.dir/src/search.c.o: /home/gus/dev/DSA/vector/src/search.c \
 /home/gus/dev/DSA/vector/include/math.h:
 
 /home/gus/dev/DSA/vector/src/binop.c:
+
+/usr/include/assert.h:
 
 /home/gus/dev/DSA/vector/include/iterator.h:
 

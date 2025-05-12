@@ -18,16 +18,17 @@ struct Array {
 // CORE
 
 bool array_resize(struct Array* arr, size_t new_size);
-bool emplace_at(struct Array* arr, int index, int elt);
+bool insert_at(struct Array* arr, int index, int elt);
 void fill(struct Array* arr, int elt); 
 void free_arr(struct Array* arr);
-int get(const struct Array* arr, int index);
-struct Array init(size_t initial_size);
-struct Array init_from_array(const int* values, size_t length);
+int array_get(const struct Array* arr, int index);
+struct Array array_init(size_t initial_size);
+struct Array array_init_from(const int* values, size_t length);
 void print(const struct Array* arr);
+int pop_back(struct Array* arr);
 bool push_back(struct Array* arr, int elt);
 bool remove_at(struct Array* arr, int index);
-void set(struct Array* arr, int index, int elt);
+bool array_set(struct Array* arr, int index, int elt);
 bool shrink(struct Array* arr);
 
 // write and load from file

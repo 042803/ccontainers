@@ -1,31 +1,42 @@
 #include "../include/array_utils.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 
 // Helper functions 
 void swap(int* a, int* b){
-	int temp = *a; 
-	*a = *b; 
-	*b = temp; 
+    assert(a != NULL);
+    assert(b != NULL);
+    
+    int temp = *a; 
+    *a = *b; 
+    *b = temp; 
 }
 
-void cpy(int* dest, const int* src, size_t length){
+void internal_copy(int* dest, const int* src, size_t length){
+    assert(dest != NULL);
+    assert(src != NULL);
+    
     for (size_t index = 0; index < length; ++index){
         dest[index] = src[index];
     }
 }
 
-bool resize_to(struct Array* arr, size_t new_size) {
-    if (new_size < 4) new_size = ARR_MIN_SIZE;
+bool internal_resize_to(struct Array* arr, size_t new_size) {
+    if (!arr) return false;
+
+    if (new_size < ARR_MIN_SIZE)
+        new_size = ARR_MIN_SIZE;    
 
     int* new_A = (int*)calloc(new_size, sizeof(int));
+    
     if (!new_A) {
         fprintf(stderr, "allocation failed\n");
         return false;
     }
 
     if (arr->A != NULL) {
-        cpy(new_A, arr->A, arr->length);
+        internal_copy(new_A, arr->A, arr->length);
         free(arr->A);
     }
 
@@ -35,23 +46,26 @@ bool resize_to(struct Array* arr, size_t new_size) {
 }
 
 bool internal_resize(struct Array* arr){
-    return resize_to(arr, arr->size * 2);
+    return internal_resize_to(arr, arr->size * 2);
 }
 
 int internal_partition(struct Array* arr, int low, int high){
+    if (!arr || !arr->A || low < 0 || high < 0 || low >= arr->length || high > arr->length || low >= high) {
+        return -1;
+    }
     int pivot = arr->A[low];
-    int i = low;
-    int j = high;
+    int left = low;
+    int right = high;
 
-    while (i < j){
-        do { i++; } while (i <= high && arr->A[i] <= pivot);
-        do { j--; } while (j >= low && arr->A[j] > pivot);
-        if (i < j){
-            swap(&arr->A[i], &arr->A[j]);
+    while (left < right){
+        do { left++; } while (left <= high && arr->A[left] <= pivot);
+        do { right--; } while (right >= low && arr->A[right] > pivot);
+        if (left < right){
+            swap(&arr->A[left], &arr->A[right]);
         }
     }
-    swap(&arr->A[low], &arr->A[j]);
-    return j;
+    swap(&arr->A[low], &arr->A[right]);
+    return right;
 }
 /*
  * OLD IMPLEMENTATION, CAUSING SEG FAULT
@@ -76,7 +90,7 @@ int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
 }
 */
 
-int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
+int c_internal_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
 
     if (!arr || !arr->A || !cmp || low < 0 || high > (int)arr->length || low >= high) {
         return -1;
@@ -86,26 +100,27 @@ int c_partition(struct Array* arr, int low, int high, comparator_fn cmp) {
     int pivot = arr->A[pivot_idx];
     swap(&arr->A[low], &arr->A[pivot_idx]); 
 
-    int i = low + 1;
-    int j = high - 1; 
+    int left = low + 1;
+    int right = high - 1; 
 
     while (1) {
-        while (i <= j && cmp(&arr->A[i], &pivot) < 0) i++;
-        while (i <= j && cmp(&arr->A[j], &pivot) > 0) j--;
+        while (left <= right && cmp(&arr->A[left], &pivot) < 0) left++;
+        while (left <= right && cmp(&arr->A[right], &pivot) > 0) right--;
         
-        if (i >= j) break;
-        swap(&arr->A[i], &arr->A[j]);
-        i++;
-        j--;
+        if (left >= right) break;
+        swap(&arr->A[left], &arr->A[right]);
+        left++;
+        right--;
     }
-    swap(&arr->A[low], &arr->A[j]);
-    return j;
+    swap(&arr->A[low], &arr->A[right]);
+    return right;
 }
+
 void internal_quicksort(struct Array* arr, int low, int high){
     if (low < high){
-        int j = internal_partition(arr, low, high);
-        internal_quicksort(arr, low, j);
-        internal_quicksort(arr, j + 1, high);
+        int right = internal_partition(arr, low, high);
+        internal_quicksort(arr, low, right);
+        internal_quicksort(arr, right + 1, high);
     }
 }
 /*
@@ -118,7 +133,7 @@ void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
 }
 */
 
-void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
+void c_internal_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
     #define MAX_STACK_DEPTH 10000
     static int depth = 0;
     if (depth++ > MAX_STACK_DEPTH) {
@@ -127,66 +142,77 @@ void c_quicksort(struct Array* arr, int low, int high, comparator_fn cmp) {
     }
 
     if (high - low > 1) { 
-        int j = c_partition(arr, low, high, cmp);
-        if (j != -1) { 
-            c_quicksort(arr, low, j, cmp);
-            c_quicksort(arr, j + 1, high, cmp);
+        int right = c_internal_partition(arr, low, high, cmp);
+        if (right != -1) { 
+            c_internal_quicksort(arr, low, right, cmp);
+            c_internal_quicksort(arr, right + 1, high, cmp);
         }
     }
     depth--;
 }
 void internal_merge(struct Array* arr, int low, int mid, int high){
-    struct Array temp = init(arr->size);
-    int i = low, j = mid + 1, k = low;
+    if (!arr || !arr->A || low < 0 || mid < low || high < mid || high >= arr->length) {
+        return;
+    }
+    struct Array temp_array = array_init(arr->size);
+    if (!temp_array.A) return;
+    
+    int left_index = low, right_index = mid + 1, temp_index = low;
 
-    while (i <= mid && j <= high){
-        if (arr->A[i] < arr->A[j]){
-            temp.A[k++] = arr->A[i++];
+    while (left_index <= mid && right_index <= high){
+        if (arr->A[left_index] < arr->A[right_index]){
+            temp_array.A[temp_index++] = arr->A[left_index++];
         } else {
-            temp.A[k++] = arr->A[j++];
+            temp_array.A[temp_index++] = arr->A[right_index++];
         }
     }
 
-    while (i <= mid){
-        temp.A[k++] = arr->A[i++];
+    while (left_index <= mid){
+        temp_array.A[temp_index++] = arr->A[left_index++];
     }
 
-    while (j <= high){
-        temp.A[k++] = arr->A[j++];
+    while (right_index <= high){
+        temp_array.A[temp_index++] = arr->A[right_index++];
     }
 
-    for (i = low; i <= high; i++){
-        arr->A[i] = temp.A[i];
+    for (left_index = low; left_index <= high; left_index++){
+        arr->A[left_index] = temp_array.A[left_index];
     }
 
-    free_arr(&temp);
+    free_arr(&temp_array);
 }
 
-void c_merge(struct Array* arr, int low, int mid, int high, comparator_fn cmp) {
-    struct Array temp = init(arr->size);
-    int i = low, j = mid + 1, k = low;
+void c_internal_merge(struct Array* arr, int low, int mid, int high, comparator_fn cmp) {
+    if (!arr || !arr->A || low < 0 || mid < low || high < mid || high >= arr->length) {
+        return;
+    }
 
-    while (i <= mid && j <= high) {
-        if (cmp(&arr->A[i], &arr->A[j]) <= 0) {
-            temp.A[k++] = arr->A[i++];
+    struct Array temp_array = array_init(arr->size);
+    if(!temp_array.A) return;
+
+    int left_index = low, right_index = mid + 1, temp_index = low;
+
+    while (left_index <= mid && right_index <= high) {
+        if (cmp(&arr->A[left_index], &arr->A[right_index]) <= 0) {
+            temp_array.A[temp_index++] = arr->A[left_index++];
         } else {
-            temp.A[k++] = arr->A[j++];
+            temp_array.A[temp_index++] = arr->A[right_index++];
         }
     }
 
-    while (i <= mid) {
-        temp.A[k++] = arr->A[i++];
+    while (left_index <= mid) {
+        temp_array.A[temp_index++] = arr->A[left_index++];
     }
 
-    while (j <= high) {
-        temp.A[k++] = arr->A[j++];
+    while (right_index <= high) {
+        temp_array.A[temp_index++] = arr->A[right_index++];
     }
 
-    for (i = low; i <= high; i++) {
-        arr->A[i] = temp.A[i];
+    for (left_index = low; left_index <= high; left_index++) {
+        arr->A[left_index] = temp_array.A[left_index];
     }
 
-    free_arr(&temp);
+    free_arr(&temp_array);
 }
 
 void internal_merge_sort(struct Array* arr, int low, int high){
@@ -198,11 +224,11 @@ void internal_merge_sort(struct Array* arr, int low, int high){
     }
 }
 
-void c_mergesort(struct Array* arr, int low, int high, comparator_fn cmp) {
+void c_internal_mergesort(struct Array* arr, int low, int high, comparator_fn cmp) {
     if (low < high) {
         int mid = (low + high) / 2;
-        c_mergesort(arr, low, mid, cmp);
-        c_mergesort(arr, mid + 1, high, cmp);
-        c_merge(arr, low, mid, high, cmp);
+        c_internal_mergesort(arr, low, mid, cmp);
+        c_internal_mergesort(arr, mid + 1, high, cmp);
+        c_internal_merge(arr, low, mid, high, cmp);
     }
 }
