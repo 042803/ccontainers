@@ -93,8 +93,8 @@ bool array_contains(const struct Array* arr, int key){
         return false;
     }
 
-    if (is_sorted(arr))
-        return binary_search(arr, key) != -1;
+    if (array_is_sorted(arr))
+        return array_binary_search(arr, key) != -1;
 
     for (ArrayIterator it = iterator_begin((struct Array*)arr); iterator_has_next(&it); ) {
         if (iterator_next(&it) == key) 
@@ -110,8 +110,8 @@ bool array_contains_cmp(const struct Array* arr, int key, comparator_fn cmp) {
         return false;
     } 
 
-    if (is_sorted(arr)) {
-        return c_binary_search(arr, key, cmp) != -1;
+    if (array_is_sorted(arr)) {
+        return array_binary_search_cmp(arr, key, cmp) != -1;
     }
 
     for (ArrayIterator it = iterator_begin((struct Array*)arr); iterator_has_next(&it); iterator_next(&it)) {

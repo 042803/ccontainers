@@ -13,10 +13,10 @@ bool equals_not_sorted(struct Array* a, struct Array* b){
     if (a->length != b->length)
         return false;
     
-    if (!is_sorted(a))
+    if (!array_is_sorted(a))
         quick_sort(a);
 
-    if (!is_sorted(b))
+    if (!array_is_sorted(b))
         quick_sort(b);
 
     return array_equals(a, b); 
