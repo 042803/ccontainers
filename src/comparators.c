@@ -5,24 +5,39 @@ static inline int int_abs(int x) {
 }
 
 int cmp_ascending(const void* a, const void* b) {
+    if (!a && !b) return 0;      
+    if (!a) return -1;          
+    if (!b) return 1;
     const int ia = *(const int*) a; 
     const int ib = *(const int*) b;
     return (ia > ib) - (ia < ib);
 }
 
 int cmp_descending(const void* a, const void* b) {
+    if (!a && !b) return 0;      
+    if (!a) return 1;          
+    if (!b) return -1;
+
     const int ia = *(const int*)a;
     const int ib = *(const int*)b;
     return (ib > ia) - (ib < ia);   
 }
 
 int cmp_modulus(const void* a, const void* b) {
+    if (!a && !b) return 0;      
+    if (!a) return -1;          
+    if (!b) return 1;
+
     const int ia = int_abs(*(const int*)a);
     const int ib = int_abs(*(const int*)b);
     return (ia > ib) - (ia < ib);
 }
 
 int cmp_even_first(const void* a, const void* b) {
+    if (!a && !b) return 0;      
+    if (!a) return -1;          
+    if (!b) return 1;
+
     const int ia = *(const int*)a;
     const int ib = *(const int*)b;
 

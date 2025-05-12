@@ -5,44 +5,54 @@
 #include "../include/iterator.h"
 #include "../include/comparators.h"
 
-int binary_search(const struct Array* arr, int key){
-    int l = 0; 
-    int r = arr->length - 1; 
-    while (l <= r){
-    	int m = (l + r) / 2;
-    	if (arr->A[m] == key){
-    		return m; 
-    	} else if (arr->A[m] < key){
-    		l = m + 1;
+int array_binary_search(const struct Array* arr, int key){
+    if (!arr || !arr->A){
+        return -1; 
+    }
+
+    size_t left_index = 0; 
+    size_t right_index = arr->length - 1; 
+    while (left_index <= right_index){
+    	size_t mid_index = (left_index + right_index) / 2;
+    	if (arr->A[mid_index] == key){
+    	    return (int)mid_index; 
+    	} else if (arr->A[mid_index] < key){
+    	    left_index = mid_index + 1;
     	} else {
-    		r = m - 1;
+    	    right_index = mid_index - 1;
     	}
     }
     return -1; 
 }
 
-int c_binary_search(const struct Array* arr, int key, comparator_fn cmp) {
-    if (!arr || !arr->A) return -1;
+int array_binary_search_cmp(const struct Array* arr, int key, comparator_fn cmp) {
+    if (!arr || !arr->A){
+        return -1;
+    }
 
-    int left = 0, right = arr->length - 1;
+    size_t left_index = 0;
+    size_t right_index = arr->length - 1;
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        int cmp_result = cmp(&arr->A[mid], &key);
+    while (left_index <= right_index) {
+        size_t mid_index = left_index + (right_index - left_index) / 2;
+        int cmp_result = cmp(&arr->A[mid_index], &key);
         
         if (cmp_result == 0) {
-            return mid;  
+            return (int)mid_index;  
         } else if (cmp_result < 0) {
-            left = mid + 1;
+            left_index = mid_index + 1;
         } else {
-            right = mid - 1;
+            right_index = mid_index - 1;
         }
     }
     return -1;
 }
 
-int linear_search(struct Array* arr, int key){
-    if (!arr || !arr->A) return -1;
+int array_linear_search(struct Array* arr, int key){
+    if (!arr || !arr->A){
+        return -1;
+    }
+
     for (ArrayIterator it = iterator_begin(arr); iterator_has_next(&it); ) {
         int val = iterator_next(&it);
         if (val == key) {
@@ -58,8 +68,10 @@ int linear_search(struct Array* arr, int key){
     return -1;
 }
 
-int c_linear_search(struct Array* arr, int key, comparator_fn cmp) {
-    if (!arr || !arr->A) return -1;
+int array_linear_search_cmp(struct Array* arr, int key, comparator_fn cmp) {
+    if (!arr || !arr->A){
+        return -1;
+    }
 
     for (ArrayIterator it = iterator_begin(arr); iterator_has_next(&it); ) {
         int val = iterator_next(&it);
@@ -76,25 +88,30 @@ int c_linear_search(struct Array* arr, int key, comparator_fn cmp) {
     return -1;
 }
 
-bool contains(const struct Array* arr, int key){
-    if (arr == NULL || arr->A == NULL)
+bool array_contains(const struct Array* arr, int key){
+    if (!arr || !arr->A){
         return false;
+    }
 
-    if (is_sorted(arr))
-        return binary_search(arr, key) != -1;
+    if (array_is_sorted(arr))
+        return array_binary_search(arr, key) != -1;
 
     for (ArrayIterator it = iterator_begin((struct Array*)arr); iterator_has_next(&it); ) {
-        if (iterator_next(&it) == key) return true;
+        if (iterator_next(&it) == key) 
+            return true;
     
-    }    return false;
+    }    
+    return false;
 }
 
 
-bool c_contains(const struct Array* arr, int key, comparator_fn cmp) {
-    if (!arr || !arr->A) return false;
+bool array_contains_cmp(const struct Array* arr, int key, comparator_fn cmp) {
+    if (!arr || !arr->A){
+        return false;
+    } 
 
-    if (is_sorted(arr)) {
-        return c_binary_search(arr, key, cmp) != -1;
+    if (array_is_sorted(arr)) {
+        return array_binary_search_cmp(arr, key, cmp) != -1;
     }
 
     for (ArrayIterator it = iterator_begin((struct Array*)arr); iterator_has_next(&it); iterator_next(&it)) {

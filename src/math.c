@@ -1,25 +1,31 @@
 #include "../include/array.h"
 #include "../include/math.h"
 
-int avg(const struct Array* arr){
+int array_avg(const struct Array* arr){
+    if (!arr || !arr->A){
+        return -1; 
+    }
     if (arr->length == 0) {
         fprintf(stderr, "array is empty\n");
         return -1; 
     }
 
     int avg = 0; 
-    for (int i = 0; i < arr->length; i++){
-    	avg += arr->A[i]; 
+    for (size_t index = 0; index < arr->length; index++){
+    	avg += arr->A[index]; 
     }
     return avg / arr->length; 
 }
 
-bool is_sorted(const struct Array* arr){
+bool array_is_sorted(const struct Array* arr){
+    if (!arr || !arr->A){
+        return false;
+    }
     if (arr->length == 0 || arr->length == 1){
     	return true;
     } else {
-    	for (int i = 0; i < arr->length - 2; i++){
-            if (arr->A[i] > arr->A[i + 1]){
+    	for (size_t index = 0; index < arr->length - 2; index++){
+            if (arr->A[index] > arr->A[index + 1]){
     	    return false;
 	    }
 	}
@@ -28,29 +34,35 @@ bool is_sorted(const struct Array* arr){
 }
 
 
-int max(const struct Array* arr){
+int array_max(const struct Array* arr){
+    if (!arr || !arr->A){
+        return -1; 
+    }
     if (arr->length == 0) {
         fprintf(stderr, "array is empty\n");
         return -1; 
     }
     int max = arr->A[0];
-    for (int i = 1; i < arr->length; i++){
-    	if (arr->A[i] > max){
-    	    max = arr->A[i];
+    for (size_t index = 1; index < arr->length; index++){
+    	if (arr->A[index] > max){
+    	    max = arr->A[index];
     	}
     }
     return max;
 }
 				
-int min(const struct Array* arr){
+int array_min(const struct Array* arr){
+    if (!arr || !arr->A){
+        return -1;
+    }
     if (arr->length == 0) {
         fprintf(stderr, "array is empty\n");
         return -1; 
     }
     int min = arr->A[0];
-    for (int i = 1; i < arr->length; i++){
-    	if (arr->A[i] < min){
-    		min = arr->A[i];
+    for (size_t index = 1; index < arr->length; index++){
+    	if (arr->A[index] < min){
+    		min = arr->A[index];
     	}
     }
     return min;

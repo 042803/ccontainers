@@ -4,10 +4,10 @@
 #include "array.h"
 
 void append(struct Array* dst, const struct Array* src); 
-struct Array dif(const struct Array* arr1, const struct Array* arr2);
-struct Array in(const struct Array* arr1, const struct Array* arr2);
-struct Array merge(const struct Array* arr1, const struct Array* arr2);
-struct Array un(const struct Array* arr1, const struct Array* arr2);
+struct Array array_difference(const struct Array* arr1, const struct Array* arr2);
+struct Array array_intersection(const struct Array* arr1, const struct Array* arr2);
+struct Array array_merge(const struct Array* arr1, const struct Array* arr2);
+struct Array array_union(const struct Array* arr1, const struct Array* arr2);
 
 #endif
 

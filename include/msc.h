@@ -8,10 +8,10 @@
 #define SHOULD_COMPACT(arr) ((arr)->flagged_count >= (arr)->length / 4)
 
 void compact(struct Array* arr);
-bool equals_not_sorted(struct Array* a, struct Array* b);
-bool equals(const struct Array* a, const struct Array* b); 
-void pop_flagged(struct Array* arr);
-bool remove_value(struct Array* arr, int value); 
-struct Array slice(const struct Array* arr, int start, int end); 
+bool array_equals_not_sorted(struct Array* a, struct Array* b);
+bool array_equals(const struct Array* a, const struct Array* b); 
+void array_pop_flagged(struct Array* arr);
+bool array_remove_value(struct Array* arr, int value); 
+struct Array array_slice(const struct Array* arr, int start, int end); 
 
 #endif 

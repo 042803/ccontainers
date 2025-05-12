@@ -22,7 +22,7 @@ void shuffle(int* array, size_t n) {
 
 // Test 1: Mass push_back and resize
 void test_push_back_resize() {
-    struct Array arr = init(ARRAY_MIN_SIZE);
+    struct Array arr = array_init(ARRAY_MIN_SIZE);
     for (size_t i = 0; i < STRESS_TEST_SIZE; i++) {
         assert(push_back(&arr, (int)i));
         assert(arr.length == i + 1);
@@ -36,7 +36,7 @@ void test_push_back_resize() {
 
 // Test 2: Random insertions/deletions with shadow validation
 void test_random_ops_consistency() {
-    struct Array arr = init(ARRAY_MIN_SIZE);
+    struct Array arr = array_init(ARRAY_MIN_SIZE);
     int* shadow = malloc(STRESS_TEST_SIZE * sizeof(int)); // Shadow array
     size_t shadow_len = 0;
 
@@ -45,7 +45,7 @@ void test_random_ops_consistency() {
             // Insertion
             int val = rand();
             size_t index = (arr.length == 0) ? 0 : (rand() % arr.length);
-            assert(emplace_at(&arr, (int)index, val));
+            assert(insert_at(&arr, (int)index, val));
             
             // Update shadow array
             if (shadow_len > 0 && index < shadow_len) {
@@ -69,7 +69,7 @@ void test_random_ops_consistency() {
     // Validate consistency
     assert(arr.length == shadow_len);
     for (size_t i = 0; i < shadow_len; i++) {
-        assert(get(&arr, (int)i) == shadow[i]);
+        assert(array_get(&arr, (int)i) == shadow[i]);
     }
 
     free(shadow);
@@ -96,7 +96,7 @@ void test_edge_cases() {
 */
 // Test 4: Fill, get, set, and shrink
 void test_fill_get_set_shrink() {
-    struct Array arr = init(1000);
+    struct Array arr = array_init(1000);
     const int MAGIC = 0xABCD1234;
 
     fill(&arr, MAGIC);
@@ -104,9 +104,9 @@ void test_fill_get_set_shrink() {
 
     // Verify fill
     for (size_t i = 0; i < arr.length; i++) {
-        assert(get(&arr, (int)i) == MAGIC);
-        set(&arr, (int)i, (int)i);
-        assert(get(&arr, (int)i) == (int)i);
+        assert(array_get(&arr, (int)i) == MAGIC);
+        array_set(&arr, (int)i, (int)i);
+        assert(array_get(&arr, (int)i) == (int)i);
     }
 
     // Remove half and shrink
@@ -121,7 +121,7 @@ void test_fill_get_set_shrink() {
 
 // Test 5: Memory integrity (Valgrind will check)
 void test_memory_integrity() {
-    struct Array arr = init(ARRAY_MIN_SIZE);
+    struct Array arr = array_init(ARRAY_MIN_SIZE);
     for (size_t i = 0; i < 100000; i++) {
         push_back(&arr, (int)i);
     }

@@ -8,7 +8,7 @@ void append(struct Array* dst, const struct Array* src){
     }
 
     if (dst->size < dst->length + src->length){
-        if(!resize_to(dst, dst->length + src->length)){
+        if(!internal_resize_to(dst, dst->length + src->length)){
             fprintf(stderr, "memory allocation failed\n");
             return;
         }
@@ -18,94 +18,128 @@ void append(struct Array* dst, const struct Array* src){
     }
 }
 
-struct Array merge(const struct Array* arr1, const struct Array* arr2) {
-    struct Array temp = init(arr1->length + arr2->length);
+struct Array array_merge(const struct Array* arr1, const struct Array* arr2) {
+    if (!arr1 || !arr1->A) {
+        if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);  
+    }
+    if (!arr2 || !arr2->A) return array_clone(arr1);
 
-    int i = 0, j = 0, k = 0;
-    while (i < arr1->length && j < arr2->length) {
-    	if (arr1->A[i] < arr2->A[j]) {
-    	    temp.A[k++] = arr1->A[i++];
+    struct Array temp_array = array_init(arr1->length + arr2->length);
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
+    
+    size_t left_index = 0, right_index = 0, temp_index = 0;
+    while (left_index < arr1->length && right_index < arr2->length) {
+    	if (arr1->A[left_index] < arr2->A[right_index]) {
+    	    temp_array.A[temp_index++] = arr1->A[left_index++];
     	} else {
-	    temp.A[k++] = arr2->A[j++];
+	    temp_array.A[temp_index++] = arr2->A[right_index++];
         }
     }
-    while (i < arr1->length) 
-    	temp.A[k++] = arr1->A[i++];
-    while (j < arr2->length) 
-        temp.A[k++] = arr2->A[j++];    
-    temp.length = k;
-    return temp;
+    while (left_index < arr1->length) 
+    	temp_array.A[temp_index++] = arr1->A[left_index++];
+    while (right_index < arr2->length) 
+        temp_array.A[temp_index++] = arr2->A[right_index++];    
+    temp_array.length = temp_index;
+    return temp_array;
 }
 
 
-struct Array un(const struct Array* arr1, const struct Array* arr2) {
-    struct Array temp = init(arr1->length + arr2->length);
-    int i = 0, j = 0, k = 0;
+struct Array array_union(const struct Array* arr1, const struct Array* arr2) {
+    if (!arr1 || !arr1->A) {
+        if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);
+    }
 
-    while (i < arr1->length && j < arr2->length) {
-        if (arr1->A[i] < arr2->A[j]) {
-            temp.A[k++] = arr1->A[i++];
-        } else if (arr2->A[j] < arr1->A[i]) {
-            temp.A[k++] = arr2->A[j++];
+    if (!arr2 || !arr2->A) return array_clone(arr1);
+    
+    struct Array temp_array = array_init(arr1->length + arr2->length);
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
+
+    size_t left_index = 0, right_index = 0, temp_index = 0;
+
+    while (left_index < arr1->length && right_index < arr2->length) {
+        if (arr1->A[left_index] < arr2->A[right_index]) {
+            temp_array.A[temp_index++] = arr1->A[left_index++];
+        } else if (arr2->A[right_index] < arr1->A[left_index]) {
+            temp_array.A[temp_index++] = arr2->A[right_index++];
         } else {
-            temp.A[k++] = arr1->A[i++];
-            j++;
+            temp_array.A[temp_index++] = arr1->A[left_index++];
+            right_index++;
         }
     }
-    while (i < arr1->length)
-        temp.A[k++] = arr1->A[i++];
-    while (j < arr2->length)
-        temp.A[k++] = arr2->A[j++];
-    temp.length = k; 
-    return temp;
+    while (left_index < arr1->length)
+        temp_array.A[temp_index++] = arr1->A[left_index++];
+    while (right_index < arr2->length)
+        temp_array.A[temp_index++] = arr2->A[right_index++];
+    temp_array.length = temp_index; 
+    return temp_array;
 }
 
 
-struct Array in(const struct Array* arr1, const struct Array* arr2) {
-    struct Array temp = init(arr1->length < arr2->length ? arr1->length : arr2->length);
-    int i = 0, j = 0, k = 0;
-    while (i < arr1->length && j < arr2->length) {
-        if (arr1->A[i] == arr2->A[j]) {
-            temp.A[k++] = arr1->A[i++];
-            j++;
-        } else if (arr1->A[i] < arr2->A[j]) {
-            i++;
+struct Array array_intersection(const struct Array* arr1, const struct Array* arr2) {
+    if (!arr1 || !arr1->A || !arr2 || !arr2->A) {
+        return array_init(ARR_MIN_SIZE);
+    }
+
+    struct Array temp_array = array_init(arr1->length + arr2->length);
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
+
+    size_t left_index = 0, right_index = 0, temp_index = 0;
+
+ 
+    while (left_index < arr1->length && right_index < arr2->length) {
+        if (arr1->A[left_index] == arr2->A[right_index]) {
+            temp_array.A[temp_index++] = arr1->A[left_index++];
+            right_index++;
+        } else if (arr1->A[left_index] < arr2->A[right_index]) {
+            left_index++;
         } else {
-            j++;
+            right_index++;
         }
     }
-    temp.length = k;
-    return temp;
+    temp_array.length = temp_index;
+    return temp_array;
 }
 
 
-struct Array dif(const struct Array* arr1, const struct Array* arr2){
-    int i = 0, j = 0, k = 0;
-    struct Array temp = init(arr1->length);
+struct Array array_difference(const struct Array* arr1, const struct Array* arr2){
+    if (!arr1 || !arr1->A) {
+        if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);
+    }
+
+    if (!arr2 || !arr2->A) return array_clone(arr1);
+
+    struct Array temp_array = array_init(arr1->length + arr2->length);
+    if (temp_array.A) return array_init(ARR_MIN_SIZE); 
+
+    size_t left_index = 0, right_index = 0, temp_index = 0;
+
     if (arr2->length == 0) {
-        for (; i < arr1->length; i++) {
-            temp.A[i] = arr1->A[i];
+        for (; left_index < arr1->length; left_index++) {
+            temp_array.A[left_index] = arr1->A[left_index];
         }
-        temp.length = arr1->length;
-        return temp;
+        temp_array.length = arr1->length;
+        return temp_array;
     }
 
-    while (i < arr1->length && j < arr2->length) {
-        if (arr1->A[i] < arr2->A[j]) {
-            temp.A[k++] = arr1->A[i++];
-        } else if (arr1->A[i] > arr2->A[j]) {
-            j++;
+    while (left_index < arr1->length && right_index < arr2->length) {
+        if (arr1->A[left_index] < arr2->A[right_index]) {
+            temp_array.A[temp_index++] = arr1->A[left_index++];
+        } else if (arr1->A[left_index] > arr2->A[right_index]) {
+            right_index++;
         } else {
-            i++;
+            left_index++;
         }
     }
 
-    for (; i < arr1->length; i++) {
-        temp.A[k++] = arr1->A[i];
+    for (; left_index < arr1->length; left_index++) {
+        temp_array.A[temp_index++] = arr1->A[left_index];
     }
 
-    temp.length = k;
-    temp.size = k;
+    temp_array.length = temp_index;
+    temp_array.size = temp_index;
 
-    return temp;
+    return temp_array;
 }
