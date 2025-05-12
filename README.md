@@ -1,25 +1,73 @@
 # ccontainers
 
-**ccontainers** is a modular C library providing essential data structures and utility functions for systems programming and performance-critical applications. The core of the library is a dynamic array implementation (similar to `std::vector` in C++) with optional iterators, comparators, and related utilities.
+ccontainers is a modular and lightweight C library designed to offer essential data structures and utilities tailored for low level programming, and performance-critical applications. It provides a clean, thoroughly-tested foundation for building efficient, safe, and portable C software.
 
-Designed for clarity, performance, and ease of integration, the library is written in portable C14 and avoids unnecessary abstractions or dependencies.
+At its core lies a dynamic array module inspired by `std::vector` (C++), extended with optional iterators, comparators, and utility functions to simplify common data manipulation tasks while ensuring correctness and low overhead.
 
 ## Features
 
-- Dynamic arrays with automatic resizing (growth and optional shrink)
-- Iterator support for cleaner traversal and separation of concerns
-- Built-in and user-defined comparator support for sorting and searching
-- Range operations: fill, set, search, and conditional deletion
-- Unit, stress, and performance test suites
-- Clean, modular structure, easy to modify and adapt as needed
+### Dynamic Arrays
+- Automatic growth and optional shrinking
+- Internal memory reuse and compaction support
+- Manual or automated value removal via sentinel-based deletion
+
+### Iterator Support
+- Abstracts traversal logic and promotes separation of concerns
+- Custom iterators for range-based and condition-based operations
+
+### Comparators
+- Built-in comparators (ascending, descending, modulus, etc.)
+- Custom comparator support for sorting and searching complex types
+
+### Search & Set Utilities
+- Linear/binary search, conditional setting, and fill/set ranges
+- `remove_value` with compaction heuristics (25% threshold)
+
+### Testing Infrastructure
+- Unit tests (function-level validation)
+- Stress tests (large-scale and edge-case validation)
+- Performance benchmarks for profiling and regression tracking
+
+### Modular Architecture
+- Clear separation of concerns (e.g., search, comparators, iterators)
+- Easy to extend with additional data types and algorithms
+- Minimal dependencies; written in portable C14
+
+## Safety
+
+### NULL Safety
+- All exposed functions validate pointer inputs (e.g., `struct Array*`)
+- Functions are fail-safe and do not invoke undefined behavior on `NULL`
+
+### Memory Safety
+- Internally audited using Valgrind, AddressSanitizer, and manual inspection
+- No memory leaks, double frees, or invalid accesses under tested conditions
+
+### Thread Safety (Planned)
+- Upcoming optional locking support for concurrent usage patterns
+
 ## Roadmap
 
-Planned features include:
+Planned enhancements include:
 
-- ⚠️ NULL safety (successfully introduced)
-- 🔒 Thread safety
-- Additional containers: linked lists, trees, graphs
-- Add-ons: queues, stacks, matrix support, hashing, and lightweight encryption utilities
+- **NULL Safety** (implemented in core modules)
+- **Thread Safety** (mutex-guarded array operations)
+- **Additional Containers**
+  - Singly/doubly linked lists
+  - Binary trees, graphs (adjacency list/set representations)
+- **Add-ons and Utilities**
+  - Queues, stacks, and matrix manipulation functions
+  - Simple hash tables and lightweight encryption 
+
+## Development & Testing Tools
+
+- **Compiler Toolchains**: GCC, Clang (C14 mode)
+- **Debugging/Instrumentation**:
+  - Valgrind
+  - AddressSanitizer (`-fsanitize=address`)
+  - LeakSanitizer, UB Sanitizer
+- **Testing Framework**: Custom in-library test harness
+- **Performance Profiling**: gprof, perf, and custom timers
 
 ## Getting Started
 
