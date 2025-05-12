@@ -1,6 +1,6 @@
 # ccontainers
 
-ccontainers is a modular and lightweight C library designed to offer essential data structures and utilities tailored for low level programming, and performance-critical applications. It provides a clean, thoroughly-tested foundation for building efficient, safe, and portable C software.
+`ccontainers` is a modular and lightweight C library designed to offer essential data structures and utilities tailored for low level programming, and performance-critical applications. It provides a clean, thoroughly-tested foundation for building efficient, safe, and portable C software.
 
 At its core lies a dynamic array module inspired by `std::vector` (C++), extended with optional iterators, comparators, and utility functions to simplify common data manipulation tasks while ensuring correctness and low overhead.
 
