@@ -18,6 +18,7 @@ struct Array {
 // CORE
 
 bool array_resize(struct Array* arr, size_t new_size);
+struct Array array_clone(const struct Array* src);
 bool insert_at(struct Array* arr, int index, int elt);
 void fill(struct Array* arr, int elt); 
 void free_arr(struct Array* arr);

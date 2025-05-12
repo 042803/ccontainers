@@ -21,10 +21,12 @@ void append(struct Array* dst, const struct Array* src){
 struct Array array_merge(const struct Array* arr1, const struct Array* arr2) {
     if (!arr1 || !arr1->A) {
         if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);  
     }
+    if (!arr2 || !arr2->A) return array_clone(arr1);
 
     struct Array temp_array = array_init(arr1->length + arr2->length);
-    if (temp_array.A) return array_init(ARR_MIN_SIZE); 
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
     
     size_t left_index = 0, right_index = 0, temp_index = 0;
     while (left_index < arr1->length && right_index < arr2->length) {
@@ -46,10 +48,13 @@ struct Array array_merge(const struct Array* arr1, const struct Array* arr2) {
 struct Array array_union(const struct Array* arr1, const struct Array* arr2) {
     if (!arr1 || !arr1->A) {
         if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);
     }
 
+    if (!arr2 || !arr2->A) return array_clone(arr1);
+    
     struct Array temp_array = array_init(arr1->length + arr2->length);
-    if (temp_array.A) return array_init(ARR_MIN_SIZE); 
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
 
     size_t left_index = 0, right_index = 0, temp_index = 0;
 
@@ -73,12 +78,12 @@ struct Array array_union(const struct Array* arr1, const struct Array* arr2) {
 
 
 struct Array array_intersection(const struct Array* arr1, const struct Array* arr2) {
-    if (!arr1 || !arr1->A) {
-        if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+    if (!arr1 || !arr1->A || !arr2 || !arr2->A) {
+        return array_init(ARR_MIN_SIZE);
     }
 
     struct Array temp_array = array_init(arr1->length + arr2->length);
-    if (temp_array.A) return array_init(ARR_MIN_SIZE); 
+    if (!temp_array.A) return array_init(ARR_MIN_SIZE); 
 
     size_t left_index = 0, right_index = 0, temp_index = 0;
 
@@ -101,7 +106,10 @@ struct Array array_intersection(const struct Array* arr1, const struct Array* ar
 struct Array array_difference(const struct Array* arr1, const struct Array* arr2){
     if (!arr1 || !arr1->A) {
         if (!arr2 || !arr2->A) return array_init(ARR_MIN_SIZE);
+        return array_clone(arr2);
     }
+
+    if (!arr2 || !arr2->A) return array_clone(arr1);
 
     struct Array temp_array = array_init(arr1->length + arr2->length);
     if (temp_array.A) return array_init(ARR_MIN_SIZE); 
