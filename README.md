@@ -62,6 +62,7 @@ Planned enhancements include:
 ## Development & Testing Tools
 
 - **Compiler Toolchains**: GCC, Clang (C14 mode)
+- **Build System**: CMake (for cross-platform management)
 - **Debugging/Instrumentation**:
   - Valgrind
   - AddressSanitizer (`-fsanitize=address`)
