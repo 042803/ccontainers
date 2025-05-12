@@ -7,6 +7,9 @@
 #include <limits.h> 
 
 bool equals_not_sorted(struct Array* a, struct Array* b){
+    if (!a || !a->A || !b || !b->A){
+        return false;
+    }
     if (a->length != b->length)
         return false;
     
@@ -16,10 +19,13 @@ bool equals_not_sorted(struct Array* a, struct Array* b){
     if (!is_sorted(b))
         quick_sort(b);
 
-    return equals(a, b); 
+    return array_equals(a, b); 
 }
 
-bool equals(const struct Array* a, const struct Array* b) {
+bool array_equals(const struct Array* a, const struct Array* b) {
+    if (!a || !a->A || !b || !b->A){
+        return false;
+    }
     if (a->length != b->length) return false;
 
     ConstArrayIterator it_a = const_iterator_begin(a);
@@ -33,18 +39,17 @@ bool equals(const struct Array* a, const struct Array* b) {
     return true;
 }
 
-bool remove_value(struct Array* arr, int value) {
+bool array_remove_value(struct Array* arr, int value) {
     if (!arr || !arr->A) return false;
 
-    int v;
+    int val;
     for (ArrayIterator it = iterator_begin(arr); iterator_has_next(&it); ) {
-        v = iterator_next(&it);
-        if (v == value) {
+        val = iterator_next(&it);
+        if (val == value) {
             iterator_set(&it, FLAGGED);
             arr->flagged_count++;
         }
     }
-
     if (SHOULD_COMPACT(arr)) {
         compact(arr);
     }
@@ -68,7 +73,7 @@ void compact(struct Array* arr) {
     arr->flagged_count = 0;
 }
 
-void pop_flagged(struct Array* arr) {
+void array_pop_flagged(struct Array* arr) {
     if (!arr || !arr->A) return;
 
     while (arr->length > 0 && arr->A[arr->length - 1] == FLAGGED) {
@@ -77,13 +82,13 @@ void pop_flagged(struct Array* arr) {
     }
 }
 
-struct Array slice(const struct Array* arr, int start, int end) {
+struct Array array_slice(const struct Array* arr, int start, int end) {
     if (!arr || !arr->A || start < 0 || end > arr->length || start >= end) {
-        return init(0);
+        return array_init(ARR_MIN_SIZE);
     }
 
     size_t new_len = end - start;
-    struct Array result = init(new_len);
+    struct Array result = array_init(new_len);
 
     for (int i = 0; i < new_len; ++i) {
         result.A[i] = arr->A[start + i];
