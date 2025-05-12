@@ -16,7 +16,7 @@ Designed for clarity, performance, and ease of integration, the library is writt
 
 Planned features include:
 
-- ⚠️ NULL safety (partially already included, still rigorously testing it)
+- ⚠️ NULL safety (successfully introduced)
 - 🔒 Thread safety
 - Additional containers: linked lists, trees, graphs
 - Add-ons: queues, stacks, matrix support, hashing, and lightweight encryption utilities
