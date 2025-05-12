@@ -15,7 +15,7 @@ int reverse_cmp(const void* a, const void* b) {
 
 /* Helper to create sorted array for binary search tests */
 struct Array create_sorted_array(size_t size, int start) {
-    struct Array arr = init(size);
+    struct Array arr = array_init(size);
     for (int i = 0; i < (int)size; i++) {
         push_back(&arr, start + i*2); // Even numbers only
     }
@@ -24,7 +24,7 @@ struct Array create_sorted_array(size_t size, int start) {
 
 /* Helper to create randomized array for linear search */
 struct Array create_random_array(size_t size) {
-    struct Array arr = init(size);
+    struct Array arr = array_init(size);
     for (size_t i = 0; i < size; i++) {
         push_back(&arr, rand() % (int)(size * 2));
     }
@@ -39,7 +39,7 @@ void test_binary_search_correctness() {
     // Test all existing elements
     for (int i = 0; i < (int)arr.length; i++) {
         int key = arr.A[i];
-        int idx = binary_search(&arr, key);
+        int idx = array_binary_search(&arr, key);
         assert(idx == i);
         assert(arr.A[idx] == key);
     }
@@ -69,7 +69,7 @@ void test_binary_search_performance() {
     
     for (int i = 0; i < BENCHMARK_ROUNDS; i++) {
         int key = rand() % (int)arr.size;
-        int idx = binary_search(&arr, key);
+        int idx = array_binary_search(&arr, key);
         assert(idx == -1 || arr.A[idx] == key);
     }
     
@@ -85,9 +85,9 @@ void test_linear_search_correctness() {
     struct Array arr = create_random_array(STRESS_SIZE);
     
     // Add known values at specific positions
-    set(&arr, 0, INT_MIN);
-    set(&arr, arr.length/2, INT_MAX);
-    set(&arr, arr.length-1, 0);
+    array_set(&arr, 0, INT_MIN);
+    array_set(&arr, arr.length/2, INT_MAX);
+    array_set(&arr, arr.length-1, 0);
 
     // Test edge cases
     //assert(linear_search(&arr, INT_MIN) == 0);
@@ -95,7 +95,7 @@ void test_linear_search_correctness() {
     //assert(linear_search(&arr, 0) == (int)arr.length-1);
     
     // Test with custom comparator
-    assert(c_linear_search(&arr, INT_MAX, reverse_cmp) == (int)arr.length/2);
+    assert(array_linear_search_cmp(&arr, INT_MAX, reverse_cmp) == (int)arr.length/2);
 
     free_arr(&arr);
 }
@@ -122,18 +122,18 @@ void test_linear_search_thorough() {
     // 1. Test all existing elements
     for (int i = 0; i < (int)arr.length; i++) {
         int key = arr.A[i];
-        int idx = linear_search(&arr, key);
+        int idx = array_linear_search(&arr, key);
         assert(idx != -1 && arr.A[idx] == key); // Must find existing elements
     }
 
     // 2. Test guaranteed missing elements
     int missing_key = -1; // Value we know isn't in the array
-    assert(linear_search(&arr, missing_key) == -1);
+    assert(array_linear_search(&arr, missing_key) == -1);
 
     // 3. Randomized stress test (with validation)
     for (int i = 0; i < BENCHMARK_ROUNDS; i++) {
         int key = rand() % (INT_MAX / 2); // Wider range than array values
-        int idx = linear_search(&arr, key);
+        int idx = array_linear_search(&arr, key);
         
         // Verify result is either -1 or points to the correct key
         if (idx != -1) {
@@ -153,7 +153,7 @@ void test_linear_search_thorough() {
 /* ================== Contains Stress Tests ================== */
 
 void test_contains_operations() {
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i * 2); // Even numbers only
     }
@@ -161,20 +161,20 @@ void test_contains_operations() {
     // Test existing elements
     for (int i = 0; i < 1000; i++) {
         int key = (rand() % (int)arr.length) * 2;
-        assert(contains(&arr, key));
+        assert(array_contains(&arr, key));
     }
 
     // Test non-existent elements
     for (int i = 0; i < 1000; i++) {
         int key = (rand() % (int)arr.length) * 2 + 1; // Odd numbers
-        assert(!contains(&arr, key));
+        assert(!array_contains(&arr, key));
     }
 
     // Test custom comparator
     qsort(arr.A, arr.length, sizeof(int), reverse_cmp);
     for (int i = 0; i < 100; i++) {
         int key = arr.A[rand() % arr.length];
-        assert(c_contains(&arr, key, reverse_cmp));
+        assert(array_contains_cmp(&arr, key, reverse_cmp));
     }
 
     free_arr(&arr);

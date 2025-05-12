@@ -20,7 +20,7 @@ static int safe_op(int x) {
 /* ================== Range Operations Tests ================== */
 
 void test_set_operations() {
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i);
     }
@@ -48,7 +48,7 @@ void test_set_operations() {
 }
 
 void test_apply_operations() {
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i);
     }
@@ -78,7 +78,7 @@ void test_apply_operations() {
 /* ================== Map Operations Tests ================== */
 
 void test_map_operations() {
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i);
     }
@@ -108,7 +108,7 @@ void test_map_operations() {
 /* ================== Filter Operations Tests ================== */
 
 void test_filter_operations() {
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i - (int)STRESS_SIZE/2);  // Mix of positive/negative
     }
@@ -142,7 +142,7 @@ void test_filter_operations() {
 
 void test_performance() {
     // Initialize array with safe values
-    struct Array arr = init(STRESS_SIZE);
+    struct Array arr = array_init(STRESS_SIZE);
     for (int i = 0; i < (int)STRESS_SIZE; i++) {
         push_back(&arr, i % 1024);  // Keep numbers small
     }
