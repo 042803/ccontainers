@@ -4,11 +4,11 @@
 #include "array.h"
 #include "comparators.h"
 
-int binary_search(const struct Array* arr, int key);
-int c_binary_search(const struct Array* arr, int key, comparator_fn cmp);
-bool contains(const struct Array* arr, int key);
-bool c_contains(const struct Array* arr, int key, comparator_fn cmp);
-int linear_search(struct Array* arr, int key);
-int c_linear_search(struct Array* arr, int key, comparator_fn cmp);
+int array_binary_search(const struct Array* arr, int key);
+int array_binary_search_cmp(const struct Array* arr, int key, comparator_fn cmp);
+bool array_contains(const struct Array* arr, int key);
+bool array_contains_cmp(const struct Array* arr, int key, comparator_fn cmp);
+int array_linear_search(struct Array* arr, int key);
+int array_linear_search_cmp(struct Array* arr, int key, comparator_fn cmp);
 
 #endif

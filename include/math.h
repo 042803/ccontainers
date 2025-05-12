@@ -3,9 +3,9 @@
 
 #include "array.h"
 
-int avg(const struct Array* arr);
-bool is_sorted(const struct Array* arr);
-int max(const struct Array* arr);
-int min(const struct Array* arr);
+int array_avg(const struct Array* arr);
+bool array_is_sorted(const struct Array* arr);
+int array_max(const struct Array* arr);
+int array_min(const struct Array* arr);
 
 #endif
