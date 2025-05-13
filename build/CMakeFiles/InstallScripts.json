@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/gus/dev/ccontainers/vector/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
