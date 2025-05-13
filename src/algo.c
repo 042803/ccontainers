@@ -66,7 +66,7 @@ void merge_sort(struct Array* arr){
     }
 }
 
-void c_merge_sort(struct Array* arr, comparator_fn cmp){ 
+void merge_sort_cmp(struct Array* arr, comparator_fn cmp){ 
     if (!arr || !arr->A || !cmp) return;    
     if (arr->flagged_count > 0)
         compact(arr);

@@ -6,7 +6,7 @@
 #include "../include/const_iterator.h"
 #include <limits.h> 
 
-bool equals_not_sorted(struct Array* a, struct Array* b){
+bool array_equals_not_sorted(struct Array* a, struct Array* b){
     if (!a || !a->A || !b || !b->A){
         return false;
     }

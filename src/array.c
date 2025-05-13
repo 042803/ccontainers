@@ -36,7 +36,7 @@ struct Array array_init_from(const int* values, size_t length) {
     return arr;
 }
 
-struct Array clone_array(const struct Array* src) {
+struct Array array_clone(const struct Array* src) {
     struct Array copy_array = array_init(src->length);
     internal_copy(copy_array.A, src->A, src->length);
     copy_array.length = src->length;

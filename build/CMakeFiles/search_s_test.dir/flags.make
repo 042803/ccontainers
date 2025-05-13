@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/gus/dev/DSA/vector/include -I/usr/include/CUnit
+C_INCLUDES = -I/home/gus/dev/ccontainers/vector/include
 
 C_FLAGS = -g -std=gnu11
 
