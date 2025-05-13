@@ -1,11 +1,11 @@
-CMakeFiles/cds.dir/src/msc.c.o: /home/gus/dev/DSA/vector/src/msc.c \
- /usr/include/stdc-predef.h \
- /home/gus/dev/DSA/vector/src/../include/array.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h /usr/include/features.h \
- /usr/include/features-time64.h /usr/include/bits/wordsize.h \
- /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
- /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
- /usr/include/gnu/stubs-64.h \
+CMakeFiles/cds.dir/src/msc.c.o: \
+ /home/gus/dev/ccontainers/vector/src/msc.c /usr/include/stdc-predef.h \
+ /home/gus/dev/ccontainers/vector/src/../include/array.h \
+ /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
@@ -33,16 +33,16 @@ CMakeFiles/cds.dir/src/msc.c.o: /home/gus/dev/DSA/vector/src/msc.c \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h \
- /home/gus/dev/DSA/vector/src/../include/msc.h \
- /home/gus/dev/DSA/vector/src/../include/array.h \
+ /home/gus/dev/ccontainers/vector/src/../include/msc.h \
+ /home/gus/dev/ccontainers/vector/src/../include/array.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/syslimits.h \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/pthread_stack_min.h /usr/include/bits/posix2_lim.h \
- /home/gus/dev/DSA/vector/src/../include/math.h \
- /home/gus/dev/DSA/vector/src/../include/algo.h \
- /home/gus/dev/DSA/vector/src/../include/comparators.h \
- /home/gus/dev/DSA/vector/src/../include/iterator.h \
- /home/gus/dev/DSA/vector/src/../include/const_iterator.h
+ /home/gus/dev/ccontainers/vector/src/../include/math.h \
+ /home/gus/dev/ccontainers/vector/src/../include/algo.h \
+ /home/gus/dev/ccontainers/vector/src/../include/comparators.h \
+ /home/gus/dev/ccontainers/vector/src/../include/iterator.h \
+ /home/gus/dev/ccontainers/vector/src/../include/const_iterator.h

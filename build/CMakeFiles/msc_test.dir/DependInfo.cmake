@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gus/dev/DSA/vector/tests/unit/msc_test.c" "CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o" "gcc" "CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o.d"
+  "/home/gus/dev/ccontainers/vector/tests/unit/msc_test.c" "CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o" "gcc" "CMakeFiles/msc_test.dir/tests/unit/msc_test.c.o.d"
   "" "msc_test" "gcc" "CMakeFiles/msc_test.dir/link.d"
   )
 

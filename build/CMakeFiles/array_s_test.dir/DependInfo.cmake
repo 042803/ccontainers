@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gus/dev/DSA/vector/tests/stress/array_s_test.c" "CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o" "gcc" "CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o.d"
+  "/home/gus/dev/ccontainers/vector/tests/stress/array_s_test.c" "CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o" "gcc" "CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o.d"
   "" "array_s_test" "gcc" "CMakeFiles/array_s_test.dir/link.d"
   )
 

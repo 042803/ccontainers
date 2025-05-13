@@ -12,15 +12,15 @@
 
 // ===== Test Cases =====
 
-// --- init() ---
+// --- array_init() ---
 void test_init(void) {
-    struct Array arr_small = init(1); 
+    struct Array arr_small = array_init(1); 
     CU_ASSERT_EQUAL(arr_small.size, ARR_MIN_SIZE);
     CU_ASSERT_EQUAL(arr_small.length, 0);
     free_arr(&arr_small);
 
     // Test normal initialization
-    struct Array arr_large = init(100);
+    struct Array arr_large = array_init(100);
     CU_ASSERT_EQUAL(arr_large.size, 100);
     CU_ASSERT_EQUAL(arr_large.length, 0);
     free_arr(&arr_large);
@@ -30,64 +30,64 @@ void test_init_from_array(void) {
     int values[] = {1, 2, 3, 4, 5};
     size_t length = sizeof(values) / sizeof(values[0]);
 
-    struct Array arr = init_from_array(values, length);
+    struct Array arr = array_init_from(values, length);
     CU_ASSERT_EQUAL(arr.length, length);
     CU_ASSERT_TRUE(arr.size >= length);
     for (size_t i = 0; i < length; i++) {
-        CU_ASSERT_EQUAL(get(&arr, i), values[i]);
+        CU_ASSERT_EQUAL(array_get(&arr, i), values[i]);
     }
     free_arr(&arr);
 
-//    struct Array arr_empty = init_from_array(NULL, 0);
+//    struct Array arr_empty = array_init_from(NULL, 0);
 //    ASSERT_ARRAY_INITIALIZED(arr_empty);
 //    free_arr(&arr_empty);
 }
 
 void test_push_back(void) {
-    struct Array arr = init(2); 
+    struct Array arr = array_init(2); 
     CU_ASSERT_TRUE(push_back(&arr, 42));
     CU_ASSERT_EQUAL(arr.length, 1);
-    CU_ASSERT_EQUAL(get(&arr, 0), 42);
+    CU_ASSERT_EQUAL(array_get(&arr, 0), 42);
 
     CU_ASSERT_TRUE(push_back(&arr, 99));
     CU_ASSERT_TRUE(push_back(&arr, 100)); 
     CU_ASSERT_TRUE(arr.size > 2); 
     CU_ASSERT_EQUAL(arr.length, 3);
-    CU_ASSERT_EQUAL(get(&arr, 2), 100);
+    CU_ASSERT_EQUAL(array_get(&arr, 2), 100);
 
  //   CU_ASSERT_FALSE(push_back(NULL, 42)); 
     free_arr(&arr);
 }
 
 void test_emplace_at(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     push_back(&arr, 10);
     push_back(&arr, 20);
 
-    CU_ASSERT_TRUE(emplace_at(&arr, 1, 15)); 
+    CU_ASSERT_TRUE(insert_at(&arr, 1, 15)); 
     CU_ASSERT_EQUAL(arr.length, 3);
-    CU_ASSERT_EQUAL(get(&arr, 1), 15);
+    CU_ASSERT_EQUAL(array_get(&arr, 1), 15);
 
-    CU_ASSERT_FALSE(emplace_at(&arr, -1, 0));  
-    CU_ASSERT_FALSE(emplace_at(&arr, 999, 0)); 
-    CU_ASSERT_TRUE(emplace_at(&arr, arr.length, 30)); 
-    CU_ASSERT_EQUAL(get(&arr, 3), 30);
+    CU_ASSERT_FALSE(insert_at(&arr, -1, 0));  
+    CU_ASSERT_FALSE(insert_at(&arr, 999, 0)); 
+    CU_ASSERT_TRUE(insert_at(&arr, arr.length, 30)); 
+    CU_ASSERT_EQUAL(array_get(&arr, 3), 30);
 
     while (arr.length < arr.size) push_back(&arr, 0);
-    CU_ASSERT_TRUE(emplace_at(&arr, 0, 5));
+    CU_ASSERT_TRUE(insert_at(&arr, 0, 5));
     CU_ASSERT_TRUE(arr.size > 5); 
     free_arr(&arr);
 }
 
 void test_remove_at(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     push_back(&arr, 10);
     push_back(&arr, 20);
     push_back(&arr, 30);
 
     CU_ASSERT_TRUE(remove_at(&arr, 1)); 
     CU_ASSERT_EQUAL(arr.length, 2);
-    CU_ASSERT_EQUAL(get(&arr, 1), 30);
+    CU_ASSERT_EQUAL(array_get(&arr, 1), 30);
 
     CU_ASSERT_FALSE(remove_at(&arr, -1));  
     CU_ASSERT_FALSE(remove_at(&arr, 999)); // Invalid index (out of bounds)
@@ -100,39 +100,39 @@ void test_remove_at(void) {
 }
 
 void test_get(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     push_back(&arr, 42);
 
-    CU_ASSERT_EQUAL(get(&arr, 0), 42);
+    CU_ASSERT_EQUAL(array_get(&arr, 0), 42);
 
-    CU_ASSERT_EQUAL(get(&arr, -1), -1);  // Invalid index (negative)
-    CU_ASSERT_EQUAL(get(&arr, 999), -1); // Invalid index (out of bounds)
-//    CU_ASSERT_EQUAL(get(NULL, 0), -1);   // NULL array
+    CU_ASSERT_EQUAL(array_get(&arr, -1), -1);  // Invalid index (negative)
+    CU_ASSERT_EQUAL(array_get(&arr, 999), -1); // Invalid index (out of bounds)
+//    CU_ASSERT_EQUAL(array_get(NULL, 0), -1);   // NULL array
     free_arr(&arr);
 }
 
 void test_set(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     push_back(&arr, 10);
 
-    // Valid set
-    set(&arr, 0, 20);
-    CU_ASSERT_EQUAL(get(&arr, 0), 20);
+    // Valid array_set
+    array_set(&arr, 0, 20);
+    CU_ASSERT_EQUAL(array_get(&arr, 0), 20);
 
     // Edge cases (should silently fail)
-    set(&arr, -1, 30);  // Invalid index (no effect)
-    set(&arr, 999, 30); // Invalid index (no effect)
-//    set(NULL, 0, 40);   // NULL array (no effect)
+    array_set(&arr, -1, 30);  // Invalid index (no effect)
+    array_set(&arr, 999, 30); // Invalid index (no effect)
+//    array_set(NULL, 0, 40);   // NULL array (no effect)
     CU_ASSERT_EQUAL(arr.length, 1); // Length unchanged
     free_arr(&arr);
 }
 
 void test_fill(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     fill(&arr, 42);
     CU_ASSERT_EQUAL(arr.length, arr.size); // Filled to capacity
     for (size_t i = 0; i < arr.size; i++) {
-        CU_ASSERT_EQUAL(get(&arr, i), 42);
+        CU_ASSERT_EQUAL(array_get(&arr, i), 42);
     }
 
     // Edge case: NULL array (should do nothing)
@@ -141,7 +141,7 @@ void test_fill(void) {
 }
 
 void test_array_resize(void) {
-    struct Array arr = init(5);
+    struct Array arr = array_init(5);
     push_back(&arr, 1);
     push_back(&arr, 2);
 
@@ -161,7 +161,7 @@ void test_array_resize(void) {
 }
 
 void test_shrink(void) {
-    struct Array arr = init(10);
+    struct Array arr = array_init(10);
     push_back(&arr, 1);
     push_back(&arr, 2);
 

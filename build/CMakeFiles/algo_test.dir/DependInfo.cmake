@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gus/dev/DSA/vector/tests/unit/algo_test.c" "CMakeFiles/algo_test.dir/tests/unit/algo_test.c.o" "gcc" "CMakeFiles/algo_test.dir/tests/unit/algo_test.c.o.d"
+  "/home/gus/dev/ccontainers/vector/tests/unit/algo_test.c" "CMakeFiles/algo_test.dir/tests/unit/algo_test.c.o" "gcc" "CMakeFiles/algo_test.dir/tests/unit/algo_test.c.o.d"
   "" "algo_test" "gcc" "CMakeFiles/algo_test.dir/link.d"
   )
 

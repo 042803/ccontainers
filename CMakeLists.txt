@@ -1,14 +1,11 @@
-
 cmake_minimum_required(VERSION 3.10)
 
-project(vector)
+project(ccontainers_vector)
 
 set(CMAKE_C_STANDARD 11)
-
 set(CMAKE_BUILD_TYPE Debug)
 
-include_directories(include)
-
+# Core library
 add_library(cds STATIC
     src/array.c
     src/array_utils.c
@@ -21,21 +18,26 @@ add_library(cds STATIC
     src/search.c
 )
 
-file(GLOB UNIT_TESTS "tests/unit/*.c")
-file(GLOB UNIT_TESTS "tests/stress/*.c")
+target_include_directories(cds PUBLIC include)
 
-include_directories(/usr/include/CUnit)
+# CUnit
+find_library(CUNIT_LIBRARY cunit)
+find_path(CUNIT_INCLUDE_DIR CUnit/CUnit.h)
 
-link_directories(/usr/lib)
+include_directories(${CUNIT_INCLUDE_DIR})
 
+# Test discovery
+file(GLOB UNIT_TESTS_UNIT "tests/unit/*.c")
+file(GLOB UNIT_TESTS_STRESS "tests/stress/*.c")
+set(UNIT_TESTS ${UNIT_TESTS_UNIT} ${UNIT_TESTS_STRESS})
+
+# Build each test
 foreach(test_file ${UNIT_TESTS})
     get_filename_component(test_name ${test_file} NAME_WE)
 
     add_executable(${test_name} ${test_file})
-
-    target_link_libraries(${test_name} cds /usr/lib/libcunit.so)
-
+    target_link_libraries(${test_name} cds ${CUNIT_LIBRARY})
     add_test(NAME ${test_name} COMMAND ${test_name})
 endforeach()
-enable_testing()
 
+enable_testing()

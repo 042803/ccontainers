@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/gus/dev/DSA/vector/tests/unit/array_ops_test.c" "CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o" "gcc" "CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o.d"
+  "/home/gus/dev/ccontainers/vector/tests/unit/array_ops_test.c" "CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o" "gcc" "CMakeFiles/array_ops_test.dir/tests/unit/array_ops_test.c.o.d"
   "" "array_ops_test" "gcc" "CMakeFiles/array_ops_test.dir/link.d"
   )
 

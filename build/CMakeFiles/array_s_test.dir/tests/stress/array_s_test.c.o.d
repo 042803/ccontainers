@@ -1,8 +1,8 @@
 CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o: \
- /home/gus/dev/DSA/vector/tests/stress/array_s_test.c \
+ /home/gus/dev/ccontainers/vector/tests/stress/array_s_test.c \
  /usr/include/stdc-predef.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/vector.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/array.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/vector.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/array.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
@@ -35,16 +35,16 @@ CMakeFiles/array_s_test.dir/tests/stress/array_s_test.c.o: \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/array_utils.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/comparators.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/array_operations.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/iterator.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/const_iterator.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/binop.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/search.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/algo.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/math.h \
- /home/gus/dev/DSA/vector/tests/stress/../../include/msc.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/array_utils.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/comparators.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/array_operations.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/iterator.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/const_iterator.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/binop.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/search.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/algo.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/math.h \
+ /home/gus/dev/ccontainers/vector/tests/stress/../../include/msc.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/syslimits.h \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
